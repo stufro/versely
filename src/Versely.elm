@@ -10,29 +10,70 @@ import Json.Decode.Pipeline exposing (hardcoded, required)
 import Http
 
 type alias Model =
-  { searchText : String }
+  { searchText : String
+  , scripture : Scripture
+  , error : Maybe Http.Error
+  }
+
+type alias Scripture = 
+  { reference : String
+  , text : String
+  , translation_name : String
+  }
 
 initialModel : Model
 initialModel =
-  Model ""
+  { searchText = ""
+  , scripture = Scripture "" "" "" -- todo: make this a Maybe Scripture
+  , error = Nothing
+  }
+
+scriptureDecoder : Decoder Scripture
+scriptureDecoder =
+  succeed Scripture
+    |> required "reference" string
+    |> required "text" string
+    |> required "translation_name" string
+
+
+fetchScripture : String -> Cmd Msg
+fetchScripture search =
+  Http.get
+    {
+      url = "https://bible-api.com/" ++ search
+      , expect  = Http.expectJson LoadScripture scriptureDecoder
+    }
 
 type Msg 
   = UpdateSearchBox String
   | Search String
+  | LoadScripture (Result Http.Error Scripture)
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
     UpdateSearchBox text -> 
       (
-        { model | searchText = text },
-        Cmd.none
+        { model | searchText = text }
+        , Cmd.none
       )
 
     Search text ->
       (
-        { model | searchText = "" },
-        Cmd.none
+        { model | searchText = "", error = Nothing }
+        , fetchScripture model.searchText
+      )
+
+    LoadScripture (Ok scripture) ->
+      (
+        { model | scripture = scripture }
+        , Cmd.none
+      )
+
+    LoadScripture (Err error) ->
+      (
+        { model | error = Just error }
+        , Cmd.none
       )
 
 view : Model -> Html Msg
@@ -54,8 +95,20 @@ view model =
         , button 
           [ onClick (Search model.searchText) ]
           [ text "Search" ]
+        ,  viewScripture model
       ]
     ]
+
+viewScripture : Model -> Html Msg
+viewScripture model =
+  case model.error of
+    Just error ->
+      div []
+          [ text "An error occured fetching the verse"]
+
+    Nothing ->
+      div []
+          [ text model.scripture.text ]
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
