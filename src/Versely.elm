@@ -17,20 +17,35 @@ initialModel =
   Model ""
 
 type Msg =
-  UpdateSearchBox
+  UpdateSearchBox String
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
-    UpdateSearchBox -> 
+    UpdateSearchBox text -> 
       (
-        model,
+        { model | searchText = text },
         Cmd.none
       )
 
 view : Model -> (Html Msg)
 view model =
-  text "Hello, World!"
+  div []
+      [ div [ class "header" ]
+            [
+              h1 [] [text "Versely"]
+            ]
+      , div [ class "body" ]
+            [
+              input 
+              [ type_ "text"
+              , placeholder "Search for a verse..."
+              , value model.searchText
+              , onInput UpdateSearchBox
+              ]
+              []
+            ]
+      ]
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
