@@ -16,8 +16,9 @@ initialModel : Model
 initialModel =
   Model ""
 
-type Msg =
-  UpdateSearchBox String
+type Msg 
+  = UpdateSearchBox String
+  | Search String
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -28,24 +29,33 @@ update msg model =
         Cmd.none
       )
 
-view : Model -> (Html Msg)
+    Search text ->
+      (
+        { model | searchText = "" },
+        Cmd.none
+      )
+
+view : Model -> Html Msg
 view model =
   div []
-      [ div [ class "header" ]
-            [
-              h1 [] [text "Versely"]
-            ]
-      , div [ class "body" ]
-            [
-              input 
-              [ type_ "text"
-              , placeholder "Search for a verse..."
-              , value model.searchText
-              , onInput UpdateSearchBox
-              ]
-              []
-            ]
+    [ div [ class "header" ]
+      [
+        h1 [] [text "Versely"]
       ]
+    , div [ class "body" ]
+      [
+        input 
+          [ type_ "text"
+          , placeholder "Search for a verse..."
+          , value model.searchText
+          , onInput UpdateSearchBox
+          ]
+          []
+        , button 
+          [ onClick (Search model.searchText) ]
+          [ text "Search" ]
+      ]
+    ]
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

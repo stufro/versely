@@ -5160,16 +5160,29 @@ var $author$project$Versely$subscriptions = function (model) {
 };
 var $author$project$Versely$update = F2(
 	function (msg, model) {
-		var text = msg.a;
-		return _Utils_Tuple2(
-			_Utils_update(
-				model,
-				{searchText: text}),
-			$elm$core$Platform$Cmd$none);
+		if (msg.$ === 'UpdateSearchBox') {
+			var text = msg.a;
+			return _Utils_Tuple2(
+				_Utils_update(
+					model,
+					{searchText: text}),
+				$elm$core$Platform$Cmd$none);
+		} else {
+			var text = msg.a;
+			return _Utils_Tuple2(
+				_Utils_update(
+					model,
+					{searchText: ''}),
+				$elm$core$Platform$Cmd$none);
+		}
 	});
+var $author$project$Versely$Search = function (a) {
+	return {$: 'Search', a: a};
+};
 var $author$project$Versely$UpdateSearchBox = function (a) {
 	return {$: 'UpdateSearchBox', a: a};
 };
+var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5182,13 +5195,29 @@ var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('
 var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
 var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
 	return {$: 'MayStopPropagation', a: a};
 };
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
 var $elm$html$Html$Events$stopPropagationOn = F2(
 	function (event, decoder) {
 		return A2(
@@ -5260,7 +5289,18 @@ var $author$project$Versely$view = function (model) {
 								$elm$html$Html$Attributes$value(model.searchText),
 								$elm$html$Html$Events$onInput($author$project$Versely$UpdateSearchBox)
 							]),
-						_List_Nil)
+						_List_Nil),
+						A2(
+						$elm$html$Html$button,
+						_List_fromArray(
+							[
+								$elm$html$Html$Events$onClick(
+								$author$project$Versely$Search(model.searchText))
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Search')
+							]))
 					]))
 			]));
 };
