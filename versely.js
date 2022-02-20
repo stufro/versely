@@ -5319,7 +5319,12 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: ''};
+var $author$project$Versely$initialModel = {
+	error: $elm$core$Maybe$Nothing,
+	scripture: $elm$core$Maybe$Just(
+		{reference: 'John 3:1', text: 'Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.', translation_name: 'World English Bible'}),
+	searchText: ''
+};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Versely$init = function (_v0) {

@@ -24,7 +24,8 @@ type alias Scripture =
 initialModel : Model
 initialModel =
   { searchText = ""
-  , scripture = Nothing
+  -- , scripture = Nothing
+  , scripture = (Just { text = "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.", reference = "John 3:1", translation_name = "World English Bible" })
   , error = Nothing
   }
 

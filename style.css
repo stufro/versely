@@ -1,0 +1,50 @@
+:root {
+  --primary-colour: #018cdd;
+  --background-colour: #fafbfd;
+  --secondary-colour: #cacaca;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: var(--background-colour);
+  padding: 5em;
+  text-align: center;
+}
+
+h1 {
+  color: var(--primary-colour);
+}
+
+input {
+  width: 80%;
+  background: none;
+  border: 0;
+  border: 2px solid var(--secondary-colour);
+  border-radius: 2rem;
+  font-size: xx-large;
+  padding: 0.5rem;
+  text-align: center;
+  transition: border-color 0.5s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-colour);
+}
+
+button {
+  background-color: var(--primary-colour);
+  border-color: var(--primary-colour);
+  border-style: solid;
+  border-radius: 15%;
+  color: white;
+  padding: 0.75rem;
+  transition: background-color 0.4s ease-in-out,
+              color 0.4s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background: none;
+  color: black;
+}
