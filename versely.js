@@ -5319,15 +5319,7 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Versely$Scripture = F3(
-	function (reference, text, translation_name) {
-		return {reference: reference, text: text, translation_name: translation_name};
-	});
-var $author$project$Versely$initialModel = {
-	error: $elm$core$Maybe$Nothing,
-	scripture: A3($author$project$Versely$Scripture, '', '', ''),
-	searchText: ''
-};
+var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: ''};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Versely$init = function (_v0) {
@@ -6128,6 +6120,10 @@ var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
 		{body: $elm$http$Http$emptyBody, expect: r.expect, headers: _List_Nil, method: 'GET', timeout: $elm$core$Maybe$Nothing, tracker: $elm$core$Maybe$Nothing, url: r.url});
 };
+var $author$project$Versely$Scripture = F3(
+	function (reference, text, translation_name) {
+		return {reference: reference, text: text, translation_name: translation_name};
+	});
 var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom = $elm$json$Json$Decode$map2($elm$core$Basics$apR);
 var $elm$json$Json$Decode$field = _Json_decodeField;
 var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required = F3(
@@ -6181,7 +6177,9 @@ var $author$project$Versely$update = F2(
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{scripture: scripture}),
+							{
+								scripture: $elm$core$Maybe$Just(scripture)
+							}),
 						$elm$core$Platform$Cmd$none);
 				} else {
 					var error = msg.a.a;
@@ -6267,7 +6265,37 @@ var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
-var $author$project$Versely$viewScripture = function (model) {
+var $elm$html$Html$br = _VirtualDom_node('br');
+var $elm$html$Html$small = _VirtualDom_node('small');
+var $author$project$Versely$viewScripture = function (maybeScripture) {
+	if (maybeScripture.$ === 'Just') {
+		var scripture = maybeScripture.a;
+		return A2(
+			$elm$html$Html$div,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text(scripture.text)
+						])),
+					A2($elm$html$Html$br, _List_Nil, _List_Nil),
+					A2(
+					$elm$html$Html$small,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text(scripture.reference + (' | ' + scripture.translation_name))
+						]))
+				]));
+	} else {
+		return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+	}
+};
+var $author$project$Versely$viewResult = function (model) {
 	var _v0 = model.error;
 	if (_v0.$ === 'Just') {
 		var error = _v0.a;
@@ -6279,13 +6307,7 @@ var $author$project$Versely$viewScripture = function (model) {
 					$elm$html$Html$text('An error occured fetching the verse')
 				]));
 	} else {
-		return A2(
-			$elm$html$Html$div,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text(model.scripture.text)
-				]));
+		return $author$project$Versely$viewScripture(model.scripture);
 	}
 };
 var $author$project$Versely$view = function (model) {
@@ -6339,7 +6361,7 @@ var $author$project$Versely$view = function (model) {
 							[
 								$elm$html$Html$text('Search')
 							])),
-						$author$project$Versely$viewScripture(model)
+						$author$project$Versely$viewResult(model)
 					]))
 			]));
 };

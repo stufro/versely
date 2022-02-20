@@ -11,7 +11,7 @@ import Http
 
 type alias Model =
   { searchText : String
-  , scripture : Scripture
+  , scripture : Maybe Scripture
   , error : Maybe Http.Error
   }
 
@@ -24,7 +24,7 @@ type alias Scripture =
 initialModel : Model
 initialModel =
   { searchText = ""
-  , scripture = Scripture "" "" "" -- todo: make this a Maybe Scripture
+  , scripture = Nothing
   , error = Nothing
   }
 
@@ -66,7 +66,7 @@ update msg model =
 
     LoadScripture (Ok scripture) ->
       (
-        { model | scripture = scripture }
+        { model | scripture = Just scripture }
         , Cmd.none
       )
 
@@ -95,20 +95,33 @@ view model =
         , button 
           [ onClick (Search model.searchText) ]
           [ text "Search" ]
-        ,  viewScripture model
+        ,  viewResult model
       ]
     ]
 
-viewScripture : Model -> Html Msg
-viewScripture model =
+viewResult : Model -> Html Msg
+viewResult model =
   case model.error of
     Just error ->
       div []
           [ text "An error occured fetching the verse"]
 
     Nothing ->
-      div []
-          [ text model.scripture.text ]
+      viewScripture model.scripture
+
+viewScripture : Maybe Scripture -> Html Msg
+viewScripture maybeScripture =
+    case maybeScripture of
+      Just scripture ->
+        div []
+            [ div []
+                  [ text scripture.text ]
+            , br [] []
+            , small []
+                  [ text (scripture.reference ++ " | " ++ scripture.translation_name) ]
+            ] 
+      Nothing ->
+        div [] []
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
