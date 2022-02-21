@@ -71,7 +71,7 @@ small {
   font-size: 1.5vw;
 }
 
-.body-content {
+.body-item {
   display: flex;
   justify-content: center;
 }
@@ -114,7 +114,9 @@ small {
   box-shadow: 3px 3px 5px var(--secondary-colour); 
   width: 20%;
   padding: 3rem;
-  padding-top: 1rem;
+  padding-top: 0;
+  max-height: 15rem;
+  overflow-y: scroll;
 }
 
 .prompt-result {
@@ -126,4 +128,14 @@ small {
 
 .prompt-result:hover {
   background-color: var(--background-colour);
+}
+
+.prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-icon {
+  cursor: pointer;
 }

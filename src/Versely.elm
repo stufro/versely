@@ -125,7 +125,7 @@ view model =
 
 viewSearchBox : Model -> Html Msg
 viewSearchBox model =
-  form [ onSubmit Search, class "body-content", autocomplete False ]
+  form [ onSubmit Search, class "body-item", autocomplete False ]
        [
          input 
          [ type_ "text"
@@ -134,6 +134,7 @@ viewSearchBox model =
          , value model.searchText
          , onInput UpdateSearchBox
          , onFocus (TogglePrompt True)
+         , onClick (TogglePrompt True)
          ]
          []
        , button 
@@ -146,15 +147,24 @@ viewSearchBox model =
 viewPrompt : Model -> Html Msg
 viewPrompt model =
   if model.promptVisible && (List.length (matchingBooks model.searchText allBooks)) > 0 then
-    div [ class "body-content" ]
-        [
-          div [ class "prompt" ]
-          ( 
-            allBooks
-            |> matchingBooks model.searchText
-            |> List.take 10
-            |> List.map viewBookPrompt
-          )
+    div [ class "body-item" ]
+        [ div [ class "prompt" ]
+              [ div [ class "prompt-header" ]
+                    [ span [] []
+                    , h3 [] [ text "Books" ]
+                    , span
+                      [ onClick (TogglePrompt False)
+                      , class "close-icon"
+                      ]
+                      [ text "X" ]
+                    ]
+              , div []
+                ( 
+                  allBooks
+                  |> matchingBooks model.searchText
+                  |> List.map viewBookPrompt
+                )
+              ]
         ]
   else
     div [] []
