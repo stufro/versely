@@ -6447,7 +6447,8 @@ var $author$project$Versely$viewBookPrompt = function (book) {
 			]));
 };
 var $author$project$Versely$viewPrompt = function (model) {
-	return model.promptVisible ? A2(
+	return (model.promptVisible && ($elm$core$List$length(
+		A2($author$project$Versely$matchingBooks, model.searchText, $author$project$Versely$allBooks)) > 0)) ? A2(
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
@@ -6465,9 +6466,9 @@ var $author$project$Versely$viewPrompt = function (model) {
 					$elm$core$List$map,
 					$author$project$Versely$viewBookPrompt,
 					A2(
-						$author$project$Versely$matchingBooks,
-						model.searchText,
-						A2($elm$core$List$take, 10, $author$project$Versely$allBooks))))
+						$elm$core$List$take,
+						10,
+						A2($author$project$Versely$matchingBooks, model.searchText, $author$project$Versely$allBooks))))
 			])) : A2($elm$html$Html$div, _List_Nil, _List_Nil);
 };
 var $elm$html$Html$br = _VirtualDom_node('br');
@@ -6538,6 +6539,12 @@ var $author$project$Versely$TogglePrompt = function (a) {
 };
 var $author$project$Versely$UpdateSearchBox = function (a) {
 	return {$: 'UpdateSearchBox', a: a};
+};
+var $elm$html$Html$Attributes$autocomplete = function (bool) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'autocomplete',
+		bool ? 'on' : 'off');
 };
 var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$json$Json$Encode$bool = _Json_wrap;
@@ -6620,7 +6627,8 @@ var $author$project$Versely$viewSearchBox = function (model) {
 		_List_fromArray(
 			[
 				$elm$html$Html$Events$onSubmit($author$project$Versely$Search),
-				$elm$html$Html$Attributes$class('body-content')
+				$elm$html$Html$Attributes$class('body-content'),
+				$elm$html$Html$Attributes$autocomplete(false)
 			]),
 		_List_fromArray(
 			[

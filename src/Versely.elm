@@ -1,7 +1,7 @@
 module Versely exposing (main)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, placeholder, type_, disabled, value, id)
+import Html.Attributes exposing (class, placeholder, type_, disabled, value, id, autocomplete)
 import Html.Events exposing (onInput, onSubmit, onFocus, onBlur)
 import Browser
 import Json.Decode exposing (Decoder, string, succeed)
@@ -125,7 +125,7 @@ view model =
 
 viewSearchBox : Model -> Html Msg
 viewSearchBox model =
-  form [ onSubmit Search, class "body-content" ]
+  form [ onSubmit Search, class "body-content", autocomplete False ]
        [
          input 
          [ type_ "text"
@@ -145,14 +145,14 @@ viewSearchBox model =
 
 viewPrompt : Model -> Html Msg
 viewPrompt model =
-  if model.promptVisible then
+  if model.promptVisible && (List.length (matchingBooks model.searchText allBooks)) > 0 then
     div [ class "body-content" ]
         [
           div [ class "prompt" ]
           ( 
             allBooks
-            |> List.take 10
             |> matchingBooks model.searchText
+            |> List.take 10
             |> List.map viewBookPrompt
           )
         ]
