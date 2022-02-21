@@ -8,12 +8,14 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: var(--background-colour);
-  padding: 5em;
+  padding: 5rem;
+  padding-top: 1rem;
   text-align: center;
 }
 
 h1 {
   color: var(--primary-colour);
+  font-size: 5vw;
 }
 
 input {
@@ -24,7 +26,7 @@ input {
   border-right: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  font-size: xx-large;
+  font-size: 2vw;
   padding: 0.5rem;
   text-align: center;
   transition: border-color 0.5s ease-in-out,
@@ -65,7 +67,7 @@ button:disabled {
 
 small {
   color: var(--primary-colour);
-  font-size: large;
+  font-size: 1.5vw;
 }
 
 .search {
@@ -81,5 +83,28 @@ small {
   padding: 3rem;
   padding-bottom: 1.5rem;
   border-radius: 1rem;
-  font-size: 4ch;
+  font-size: 2.5vw;
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.search-spinner {
+  border: 5px dotted var(--primary-colour);
+  border-radius: 100%;
+  border-left-style: solid;
+  width: 5vw;
+  height: 5vw;
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

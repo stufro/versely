@@ -10,6 +10,7 @@ import Http
 
 type alias Model =
   { searchText : String
+  , searching : Bool
   , scripture : Maybe Scripture
   , error : Maybe Http.Error
   }
@@ -23,8 +24,9 @@ type alias Scripture =
 initialModel : Model
 initialModel =
   { searchText = ""
-  -- , scripture = Nothing
-  , scripture = (Just { text = "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.", reference = "John 3:1", translation_name = "World English Bible" })
+  , searching = False
+  , scripture = Nothing
+  -- , scripture = (Just { text = "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.", reference = "John 3:1", translation_name = "World English Bible" })
   , error = Nothing
   }
 
@@ -60,19 +62,19 @@ update msg model =
 
     Search ->
       (
-        { model | searchText = "", scripture = Nothing, error = Nothing }
+        { model | searchText = "", scripture = Nothing, error = Nothing, searching = True }
         , fetchScripture model.searchText
       )
 
     LoadScripture (Ok scripture) ->
       (
-        { model | scripture = Just scripture }
+        { model | scripture = Just scripture, searching = False }
         , Cmd.none
       )
 
     LoadScripture (Err error) ->
       (
-        { model | error = Just error }
+        { model | error = Just error, searching = False }
         , Cmd.none
       )
 
@@ -115,7 +117,13 @@ viewResult model =
           [ text "An error occured fetching the verse"]
 
     Nothing ->
-      viewScripture model.scripture
+      if model.searching then
+        div [ class "spinner-wrapper" ]
+            [
+              div [ class "search-spinner" ] []
+            ]
+      else
+        viewScripture model.scripture
 
 viewScripture : Maybe Scripture -> Html Msg
 viewScripture maybeScripture =

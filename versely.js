@@ -5319,12 +5319,7 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Versely$initialModel = {
-	error: $elm$core$Maybe$Nothing,
-	scripture: $elm$core$Maybe$Just(
-		{reference: 'John 3:1', text: 'Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.', translation_name: 'World English Bible'}),
-	searchText: ''
-};
+var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: '', searching: false};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Versely$init = function (_v0) {
@@ -6173,7 +6168,7 @@ var $author$project$Versely$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: ''}),
+						{error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: '', searching: true}),
 					$author$project$Versely$fetchScripture(model.searchText));
 			default:
 				if (msg.a.$ === 'Ok') {
@@ -6182,7 +6177,8 @@ var $author$project$Versely$update = F2(
 						_Utils_update(
 							model,
 							{
-								scripture: $elm$core$Maybe$Just(scripture)
+								scripture: $elm$core$Maybe$Just(scripture),
+								searching: false
 							}),
 						$elm$core$Platform$Cmd$none);
 				} else {
@@ -6191,7 +6187,8 @@ var $author$project$Versely$update = F2(
 						_Utils_update(
 							model,
 							{
-								error: $elm$core$Maybe$Just(error)
+								error: $elm$core$Maybe$Just(error),
+								searching: false
 							}),
 						$elm$core$Platform$Cmd$none);
 				}
@@ -6254,7 +6251,22 @@ var $author$project$Versely$viewResult = function (model) {
 					$elm$html$Html$text('An error occured fetching the verse')
 				]));
 	} else {
-		return $author$project$Versely$viewScripture(model.scripture);
+		return model.searching ? A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('spinner-wrapper')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('search-spinner')
+						]),
+					_List_Nil)
+				])) : $author$project$Versely$viewScripture(model.scripture);
 	}
 };
 var $author$project$Versely$Search = {$: 'Search'};
