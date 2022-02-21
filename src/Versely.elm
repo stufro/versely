@@ -1,12 +1,15 @@
 module Versely exposing (main)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, placeholder, type_, disabled, value)
+import Html.Attributes exposing (class, placeholder, type_, disabled, value, id)
 import Html.Events exposing (onInput, onSubmit, onFocus, onBlur)
 import Browser
 import Json.Decode exposing (Decoder, string, succeed)
 import Json.Decode.Pipeline exposing (required)
 import Http
+import Html.Events exposing (onClick)
+import Browser.Dom as Dom exposing (focus)
+import Task exposing (attempt)
 
 type alias Model =
   { searchText : String
@@ -32,6 +35,10 @@ initialModel =
   , promptVisible = False
   }
 
+allBooks : List String
+allBooks =
+  ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"]
+
 scriptureDecoder : Decoder Scripture
 scriptureDecoder =
   succeed Scripture
@@ -53,6 +60,8 @@ type Msg
   | Search
   | LoadScripture (Result Http.Error Scripture)
   | TogglePrompt Bool
+  | LoadPrompt String
+  | FocusOn (Result Dom.Error ())
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -87,6 +96,19 @@ update msg model =
         , Cmd.none
       )
 
+    LoadPrompt prompt ->
+      (
+        { model | searchText = prompt }
+        , Dom.focus "search-box" |> Task.attempt FocusOn
+      )
+
+    FocusOn result ->
+      case result of
+        Err (Dom.NotFound id) ->
+          ( model, Cmd.none )
+        Ok () ->
+          ( model, Cmd.none )
+
 view : Model -> Html Msg
 view model =
   div []
@@ -103,15 +125,15 @@ view model =
 
 viewSearchBox : Model -> Html Msg
 viewSearchBox model =
-  form [ onSubmit Search, class "search" ]
+  form [ onSubmit Search, class "body-content" ]
        [
          input 
          [ type_ "text"
+         , id "search-box"
          , placeholder "Search for a verse..."
          , value model.searchText
          , onInput UpdateSearchBox
          , onFocus (TogglePrompt True)
-         , onBlur (TogglePrompt False)
          ]
          []
        , button 
@@ -124,9 +146,21 @@ viewSearchBox model =
 viewPrompt : Model -> Html Msg
 viewPrompt model =
   if model.promptVisible then
-    div [ class "prompt" ] [ text "Prompt" ]
+    div [ class "body-content" ]
+        [
+          div [ class "prompt" ]
+          ( List.map viewBook allBooks )
+        ]
   else
     div [] []
+
+viewBook : String -> Html Msg
+viewBook book =
+  div [ class "prompt-result" 
+      , onClick (LoadPrompt (book ++ " "))
+      ]
+      [ text book ]
+
 
 viewResult : Model -> Html Msg
 viewResult model =

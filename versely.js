@@ -5330,6 +5330,33 @@ var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Versely$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
+var $author$project$Versely$FocusOn = function (a) {
+	return {$: 'FocusOn', a: a};
+};
+var $elm$core$Basics$composeL = F3(
+	function (g, f, x) {
+		return g(
+			f(x));
+	});
+var $elm$core$Task$onError = _Scheduler_onError;
+var $elm$core$Task$attempt = F2(
+	function (resultToMessage, task) {
+		return $elm$core$Task$command(
+			$elm$core$Task$Perform(
+				A2(
+					$elm$core$Task$onError,
+					A2(
+						$elm$core$Basics$composeL,
+						A2($elm$core$Basics$composeL, $elm$core$Task$succeed, resultToMessage),
+						$elm$core$Result$Err),
+					A2(
+						$elm$core$Task$andThen,
+						A2(
+							$elm$core$Basics$composeL,
+							A2($elm$core$Basics$composeL, $elm$core$Task$succeed, resultToMessage),
+							$elm$core$Result$Ok),
+						task))));
+	});
 var $author$project$Versely$LoadScripture = function (a) {
 	return {$: 'LoadScripture', a: a};
 };
@@ -6154,6 +6181,7 @@ var $author$project$Versely$fetchScripture = function (search) {
 			url: 'https://bible-api.com/' + search
 		});
 };
+var $elm$browser$Browser$Dom$focus = _Browser_call('focus');
 var $author$project$Versely$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
@@ -6192,13 +6220,31 @@ var $author$project$Versely$update = F2(
 							}),
 						$elm$core$Platform$Cmd$none);
 				}
-			default:
+			case 'TogglePrompt':
 				var show = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{promptVisible: show}),
 					$elm$core$Platform$Cmd$none);
+			case 'LoadPrompt':
+				var prompt = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{promptVisible: false, searchText: prompt}),
+					A2(
+						$elm$core$Task$attempt,
+						$author$project$Versely$FocusOn,
+						$elm$browser$Browser$Dom$focus('search-box')));
+			default:
+				var result = msg.a;
+				if (result.$ === 'Err') {
+					var id = result.a.a;
+					return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+				} else {
+					return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+				}
 		}
 	});
 var $elm$json$Json$Encode$string = _Json_wrap;
@@ -6214,16 +6260,58 @@ var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $author$project$Versely$allBooks = _List_fromArray(
+	['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth', '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', '1 Chronicles', '2 Chronicles', 'Ezra', 'Nehemiah', 'Esther', 'Job', 'Psalms', 'Proverbs', 'Ecclesiastes', 'Song of Solomon', 'Isaiah', 'Jeremiah', 'Lamentations', 'Ezekiel', 'Daniel', 'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum', 'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi', 'Matthew', 'Mark', 'Luke', 'John', 'Acts', 'Romans', '1 Corinthians', '2 Corinthians', 'Galatians', 'Ephesians', 'Philippians', 'Colossians', '1 Thessalonians', '2 Thessalonians', '1 Timothy', '2 Timothy', 'Titus', 'Philemon', 'Hebrews', 'James', '1 Peter', '2 Peter', '1 John', '2 John', '3 John', 'Jude', 'Revelation']);
+var $author$project$Versely$LoadPrompt = function (a) {
+	return {$: 'LoadPrompt', a: a};
+};
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $author$project$Versely$viewBook = function (book) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('prompt-result'),
+				$elm$html$Html$Events$onClick(
+				$author$project$Versely$LoadPrompt(book + ' '))
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text(book)
+			]));
+};
 var $author$project$Versely$viewPrompt = function (model) {
 	return model.promptVisible ? A2(
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
-				$elm$html$Html$Attributes$class('prompt')
+				$elm$html$Html$Attributes$class('body-content')
 			]),
 		_List_fromArray(
 			[
-				$elm$html$Html$text('Prompt')
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('prompt')
+					]),
+				A2($elm$core$List$map, $author$project$Versely$viewBook, $author$project$Versely$allBooks))
 			])) : A2($elm$html$Html$div, _List_Nil, _List_Nil);
 };
 var $elm$html$Html$br = _VirtualDom_node('br');
@@ -6306,24 +6394,8 @@ var $elm$html$Html$Attributes$boolProperty = F2(
 	});
 var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
 var $elm$html$Html$form = _VirtualDom_node('form');
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onBlur = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'blur',
-		$elm$json$Json$Decode$succeed(msg));
-};
 var $elm$html$Html$Events$onFocus = function (msg) {
 	return A2(
 		$elm$html$Html$Events$on,
@@ -6392,7 +6464,7 @@ var $author$project$Versely$viewSearchBox = function (model) {
 		_List_fromArray(
 			[
 				$elm$html$Html$Events$onSubmit($author$project$Versely$Search),
-				$elm$html$Html$Attributes$class('search')
+				$elm$html$Html$Attributes$class('body-content')
 			]),
 		_List_fromArray(
 			[
@@ -6401,13 +6473,12 @@ var $author$project$Versely$viewSearchBox = function (model) {
 				_List_fromArray(
 					[
 						$elm$html$Html$Attributes$type_('text'),
+						$elm$html$Html$Attributes$id('search-box'),
 						$elm$html$Html$Attributes$placeholder('Search for a verse...'),
 						$elm$html$Html$Attributes$value(model.searchText),
 						$elm$html$Html$Events$onInput($author$project$Versely$UpdateSearchBox),
 						$elm$html$Html$Events$onFocus(
-						$author$project$Versely$TogglePrompt(true)),
-						$elm$html$Html$Events$onBlur(
-						$author$project$Versely$TogglePrompt(false))
+						$author$project$Versely$TogglePrompt(true))
 					]),
 				_List_Nil),
 				A2(
