@@ -1,5 +1,6 @@
 :root {
   --primary-colour: #018cdd;
+  --primary-colour-accent: #026dac;
   --background-colour: #fafbfd;
   --secondary-colour: #cacaca;
 }
@@ -18,9 +19,11 @@ h1 {
 input {
   width: 80%;
   background: none;
-  border: 0;
   border: 2px solid var(--secondary-colour);
   border-radius: 2rem;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   font-size: xx-large;
   padding: 0.5rem;
   text-align: center;
@@ -33,18 +36,33 @@ input:focus {
 }
 
 button {
+  border: 2px solid var(--primary-colour);
+  border-radius: 2rem;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   background-color: var(--primary-colour);
-  border-color: var(--primary-colour);
-  border-style: solid;
-  border-radius: 15%;
   color: white;
   padding: 0.75rem;
   transition: background-color 0.4s ease-in-out,
+              border-color 0.4s ease-in-out,
               color 0.4s ease-in-out;
 }
 
 button:hover {
+  background-color: var(--primary-colour-accent);
+  border-color: var(--primary-colour-accent);
   cursor: pointer;
-  background: none;
-  color: black;
+}
+
+button:disabled {
+  background-color: var(--secondary-colour);
+  border-color: var(--secondary-colour);
+  cursor: not-allowed;
+}
+
+.search {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
 }

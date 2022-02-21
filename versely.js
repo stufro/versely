@@ -6198,13 +6198,6 @@ var $author$project$Versely$update = F2(
 				}
 		}
 	});
-var $author$project$Versely$Search = function (a) {
-	return {$: 'Search', a: a};
-};
-var $author$project$Versely$UpdateSearchBox = function (a) {
-	return {$: 'UpdateSearchBox', a: a};
-};
-var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -6216,6 +6209,60 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$br = _VirtualDom_node('br');
+var $elm$html$Html$small = _VirtualDom_node('small');
+var $author$project$Versely$viewScripture = function (maybeScripture) {
+	if (maybeScripture.$ === 'Just') {
+		var scripture = maybeScripture.a;
+		return A2(
+			$elm$html$Html$div,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text(scripture.text)
+						])),
+					A2($elm$html$Html$br, _List_Nil, _List_Nil),
+					A2(
+					$elm$html$Html$small,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text(scripture.reference + (' | ' + scripture.translation_name))
+						]))
+				]));
+	} else {
+		return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+	}
+};
+var $author$project$Versely$viewResult = function (model) {
+	var _v0 = model.error;
+	if (_v0.$ === 'Just') {
+		var error = _v0.a;
+		return A2(
+			$elm$html$Html$div,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('An error occured fetching the verse')
+				]));
+	} else {
+		return $author$project$Versely$viewScripture(model.scripture);
+	}
+};
+var $author$project$Versely$Search = function (a) {
+	return {$: 'Search', a: a};
+};
+var $author$project$Versely$UpdateSearchBox = function (a) {
+	return {$: 'UpdateSearchBox', a: a};
+};
+var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$html$Html$input = _VirtualDom_node('input');
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
@@ -6266,54 +6313,39 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
 var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
-var $elm$html$Html$br = _VirtualDom_node('br');
-var $elm$html$Html$small = _VirtualDom_node('small');
-var $author$project$Versely$viewScripture = function (maybeScripture) {
-	if (maybeScripture.$ === 'Just') {
-		var scripture = maybeScripture.a;
-		return A2(
-			$elm$html$Html$div,
-			_List_Nil,
-			_List_fromArray(
-				[
-					A2(
-					$elm$html$Html$div,
-					_List_Nil,
-					_List_fromArray(
-						[
-							$elm$html$Html$text(scripture.text)
-						])),
-					A2($elm$html$Html$br, _List_Nil, _List_Nil),
-					A2(
-					$elm$html$Html$small,
-					_List_Nil,
-					_List_fromArray(
-						[
-							$elm$html$Html$text(scripture.reference + (' | ' + scripture.translation_name))
-						]))
-				]));
-	} else {
-		return A2($elm$html$Html$div, _List_Nil, _List_Nil);
-	}
-};
-var $author$project$Versely$viewResult = function (model) {
-	var _v0 = model.error;
-	if (_v0.$ === 'Just') {
-		var error = _v0.a;
-		return A2(
-			$elm$html$Html$div,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('An error occured fetching the verse')
-				]));
-	} else {
-		return $author$project$Versely$viewScripture(model.scripture);
-	}
+var $author$project$Versely$viewSearchBox = function (model) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('search')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$input,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$type_('text'),
+						$elm$html$Html$Attributes$placeholder('Search for a verse...'),
+						$elm$html$Html$Attributes$value(model.searchText),
+						$elm$html$Html$Events$onInput($author$project$Versely$UpdateSearchBox)
+					]),
+				_List_Nil),
+				A2(
+				$elm$html$Html$button,
+				_List_fromArray(
+					[
+						$elm$html$Html$Events$onClick(
+						$author$project$Versely$Search(model.searchText))
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Search')
+					]))
+			]));
 };
 var $author$project$Versely$view = function (model) {
 	return A2(
@@ -6345,27 +6377,7 @@ var $author$project$Versely$view = function (model) {
 					]),
 				_List_fromArray(
 					[
-						A2(
-						$elm$html$Html$input,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$type_('text'),
-								$elm$html$Html$Attributes$placeholder('Search for a verse...'),
-								$elm$html$Html$Attributes$value(model.searchText),
-								$elm$html$Html$Events$onInput($author$project$Versely$UpdateSearchBox)
-							]),
-						_List_Nil),
-						A2(
-						$elm$html$Html$button,
-						_List_fromArray(
-							[
-								$elm$html$Html$Events$onClick(
-								$author$project$Versely$Search(model.searchText))
-							]),
-						_List_fromArray(
-							[
-								$elm$html$Html$text('Search')
-							])),
+						$author$project$Versely$viewSearchBox(model),
 						$author$project$Versely$viewResult(model)
 					]))
 			]));

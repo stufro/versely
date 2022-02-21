@@ -85,20 +85,25 @@ view model =
         h1 [] [text "Versely"]
       ]
     , div [ class "body" ]
-      [
-        input 
-          [ type_ "text"
-          , placeholder "Search for a verse..."
-          , value model.searchText
-          , onInput UpdateSearchBox
-          ]
-          []
-        , button 
-          [ onClick (Search model.searchText) ]
-          [ text "Search" ]
-        ,  viewResult model
+      [ viewSearchBox model
+      , viewResult model
       ]
     ]
+
+viewSearchBox : Model -> Html Msg
+viewSearchBox model =
+  div [ class "search" ]
+  [ input 
+    [ type_ "text"
+    , placeholder "Search for a verse..."
+    , value model.searchText
+    , onInput UpdateSearchBox
+    ]
+    []
+  , button 
+    [ onClick (Search model.searchText) ]
+    [ text "Search" ]
+  ]
 
 viewResult : Model -> Html Msg
 viewResult model =
