@@ -74,7 +74,7 @@ update msg model =
 
     Search ->
       (
-        { model | searchText = "", scripture = Nothing, error = Nothing, searching = True }
+        { model | searchText = "", scripture = Nothing, error = Nothing, searching = True, promptVisible = False }
         , fetchScripture model.searchText
       )
 
@@ -149,13 +149,25 @@ viewPrompt model =
     div [ class "body-content" ]
         [
           div [ class "prompt" ]
-          ( List.map viewBook allBooks )
+          ( 
+            allBooks
+            |> List.take 10
+            |> matchingBooks model.searchText
+            |> List.map viewBookPrompt
+          )
         ]
   else
     div [] []
 
-viewBook : String -> Html Msg
-viewBook book =
+matchingBooks : String -> List String -> List String
+matchingBooks searchText books =
+  List.filter (
+                \book -> 
+                  String.contains (String.toLower searchText) (String.toLower book)
+              ) books
+
+viewBookPrompt : String -> Html Msg
+viewBookPrompt book =
   div [ class "prompt-result" 
       , onClick (LoadPrompt (book ++ " "))
       ]
