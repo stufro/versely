@@ -23,19 +23,20 @@ input {
   background: none;
   border: 2px solid var(--secondary-colour);
   border-radius: 2rem;
-  border-right: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   font-size: 2vw;
   padding: 0.5rem;
   text-align: center;
   transition: border-color 0.5s ease-in-out,
-              background-color 0.5s ease-in-out;
+              background-color 0.5s ease-in-out,
+              border-right 0.5s ease-in-out;
 }
 
 input:focus {
   outline: none;
   border-color: var(--primary-colour);
+  border-right: 2px solid var(--primary-colour);
   background-color: white;
 }
 
