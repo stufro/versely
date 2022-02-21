@@ -47,7 +47,7 @@ fetchScripture search =
 
 type Msg 
   = UpdateSearchBox String
-  | Search String
+  | Search
   | LoadScripture (Result Http.Error Scripture)
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -59,7 +59,7 @@ update msg model =
         , Cmd.none
       )
 
-    Search text ->
+    Search ->
       (
         { model | searchText = "", error = Nothing }
         , fetchScripture model.searchText
@@ -92,20 +92,21 @@ view model =
 
 viewSearchBox : Model -> Html Msg
 viewSearchBox model =
-  div [ class "search" ]
-  [ input 
-    [ type_ "text"
-    , placeholder "Search for a verse..."
-    , value model.searchText
-    , onInput UpdateSearchBox
-    ]
-    []
-  , button 
-    [ onClick (Search model.searchText)
-    , disabled (String.length model.searchText < 1)
-    ]
-    [ text "Search" ]
-  ]
+  form [ onSubmit Search, class "search" ]
+       [
+         input 
+         [ type_ "text"
+         , placeholder "Search for a verse..."
+         , value model.searchText
+         , onInput UpdateSearchBox
+         ]
+         []
+       , button 
+         [ type_ "submit"
+         , disabled (String.length model.searchText < 1)
+         ]
+         [ text "Search" ]
+       ]
 
 viewResult : Model -> Html Msg
 viewResult model =

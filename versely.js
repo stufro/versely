@@ -6170,7 +6170,6 @@ var $author$project$Versely$update = F2(
 						{searchText: text}),
 					$elm$core$Platform$Cmd$none);
 			case 'Search':
-				var text = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -6256,9 +6255,7 @@ var $author$project$Versely$viewResult = function (model) {
 		return $author$project$Versely$viewScripture(model.scripture);
 	}
 };
-var $author$project$Versely$Search = function (a) {
-	return {$: 'Search', a: a};
-};
+var $author$project$Versely$Search = {$: 'Search'};
 var $author$project$Versely$UpdateSearchBox = function (a) {
 	return {$: 'UpdateSearchBox', a: a};
 };
@@ -6272,30 +6269,15 @@ var $elm$html$Html$Attributes$boolProperty = F2(
 			$elm$json$Json$Encode$bool(bool));
 	});
 var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
+var $elm$html$Html$form = _VirtualDom_node('form');
 var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
-};
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
 var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
 	return {$: 'MayStopPropagation', a: a};
 };
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
 var $elm$html$Html$Events$stopPropagationOn = F2(
 	function (event, decoder) {
 		return A2(
@@ -6321,14 +6303,37 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
+var $elm$html$Html$Events$alwaysPreventDefault = function (msg) {
+	return _Utils_Tuple2(msg, true);
+};
+var $elm$virtual_dom$VirtualDom$MayPreventDefault = function (a) {
+	return {$: 'MayPreventDefault', a: a};
+};
+var $elm$html$Html$Events$preventDefaultOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayPreventDefault(decoder));
+	});
+var $elm$html$Html$Events$onSubmit = function (msg) {
+	return A2(
+		$elm$html$Html$Events$preventDefaultOn,
+		'submit',
+		A2(
+			$elm$json$Json$Decode$map,
+			$elm$html$Html$Events$alwaysPreventDefault,
+			$elm$json$Json$Decode$succeed(msg)));
+};
 var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Versely$viewSearchBox = function (model) {
 	return A2(
-		$elm$html$Html$div,
+		$elm$html$Html$form,
 		_List_fromArray(
 			[
+				$elm$html$Html$Events$onSubmit($author$project$Versely$Search),
 				$elm$html$Html$Attributes$class('search')
 			]),
 		_List_fromArray(
@@ -6347,8 +6352,7 @@ var $author$project$Versely$viewSearchBox = function (model) {
 				$elm$html$Html$button,
 				_List_fromArray(
 					[
-						$elm$html$Html$Events$onClick(
-						$author$project$Versely$Search(model.searchText)),
+						$elm$html$Html$Attributes$type_('submit'),
 						$elm$html$Html$Attributes$disabled(
 						$elm$core$String$length(model.searchText) < 1)
 					]),
