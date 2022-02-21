@@ -101,7 +101,9 @@ viewSearchBox model =
     ]
     []
   , button 
-    [ onClick (Search model.searchText) ]
+    [ onClick (Search model.searchText)
+    , disabled (String.length model.searchText < 1)
+    ]
     [ text "Search" ]
   ]
 
