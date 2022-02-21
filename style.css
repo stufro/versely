@@ -37,6 +37,7 @@ input:focus {
   outline: none;
   border-color: var(--primary-colour);
   border-right: 2px solid var(--primary-colour);
+  border-bottom-left-radius: 0;
   background-color: white;
 }
 
@@ -108,4 +109,11 @@ small {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.prompt {
+  background-color: white;
+  box-shadow: 3px 3px 5px var(--secondary-colour); 
+  width: 75%;
+  padding: 3rem;
 }

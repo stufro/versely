@@ -5319,7 +5319,7 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: '', searching: false};
+var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchText: '', searching: false};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Versely$init = function (_v0) {
@@ -6170,7 +6170,7 @@ var $author$project$Versely$update = F2(
 						model,
 						{error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: '', searching: true}),
 					$author$project$Versely$fetchScripture(model.searchText));
-			default:
+			case 'LoadScripture':
 				if (msg.a.$ === 'Ok') {
 					var scripture = msg.a.a;
 					return _Utils_Tuple2(
@@ -6192,6 +6192,13 @@ var $author$project$Versely$update = F2(
 							}),
 						$elm$core$Platform$Cmd$none);
 				}
+			default:
+				var show = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{promptVisible: show}),
+					$elm$core$Platform$Cmd$none);
 		}
 	});
 var $elm$json$Json$Encode$string = _Json_wrap;
@@ -6207,6 +6214,18 @@ var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $author$project$Versely$viewPrompt = function (model) {
+	return model.promptVisible ? A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('prompt')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text('Prompt')
+			])) : A2($elm$html$Html$div, _List_Nil, _List_Nil);
+};
 var $elm$html$Html$br = _VirtualDom_node('br');
 var $elm$html$Html$small = _VirtualDom_node('small');
 var $author$project$Versely$viewScripture = function (maybeScripture) {
@@ -6270,6 +6289,9 @@ var $author$project$Versely$viewResult = function (model) {
 	}
 };
 var $author$project$Versely$Search = {$: 'Search'};
+var $author$project$Versely$TogglePrompt = function (a) {
+	return {$: 'TogglePrompt', a: a};
+};
 var $author$project$Versely$UpdateSearchBox = function (a) {
 	return {$: 'UpdateSearchBox', a: a};
 };
@@ -6285,13 +6307,35 @@ var $elm$html$Html$Attributes$boolProperty = F2(
 var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
 var $elm$html$Html$form = _VirtualDom_node('form');
 var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onBlur = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'blur',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $elm$html$Html$Events$onFocus = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'focus',
+		$elm$json$Json$Decode$succeed(msg));
+};
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
 var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
 	return {$: 'MayStopPropagation', a: a};
 };
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
 var $elm$html$Html$Events$stopPropagationOn = F2(
 	function (event, decoder) {
 		return A2(
@@ -6359,7 +6403,11 @@ var $author$project$Versely$viewSearchBox = function (model) {
 						$elm$html$Html$Attributes$type_('text'),
 						$elm$html$Html$Attributes$placeholder('Search for a verse...'),
 						$elm$html$Html$Attributes$value(model.searchText),
-						$elm$html$Html$Events$onInput($author$project$Versely$UpdateSearchBox)
+						$elm$html$Html$Events$onInput($author$project$Versely$UpdateSearchBox),
+						$elm$html$Html$Events$onFocus(
+						$author$project$Versely$TogglePrompt(true)),
+						$elm$html$Html$Events$onBlur(
+						$author$project$Versely$TogglePrompt(false))
 					]),
 				_List_Nil),
 				A2(
@@ -6407,6 +6455,7 @@ var $author$project$Versely$view = function (model) {
 				_List_fromArray(
 					[
 						$author$project$Versely$viewSearchBox(model),
+						$author$project$Versely$viewPrompt(model),
 						$author$project$Versely$viewResult(model)
 					]))
 			]));

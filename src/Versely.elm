@@ -2,7 +2,7 @@ module Versely exposing (main)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, placeholder, type_, disabled, value)
-import Html.Events exposing (onInput, onSubmit)
+import Html.Events exposing (onInput, onSubmit, onFocus, onBlur)
 import Browser
 import Json.Decode exposing (Decoder, string, succeed)
 import Json.Decode.Pipeline exposing (required)
@@ -13,6 +13,7 @@ type alias Model =
   , searching : Bool
   , scripture : Maybe Scripture
   , error : Maybe Http.Error
+  , promptVisible : Bool
   }
 
 type alias Scripture = 
@@ -28,6 +29,7 @@ initialModel =
   , scripture = Nothing
   -- , scripture = (Just { text = "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.", reference = "John 3:1", translation_name = "World English Bible" })
   , error = Nothing
+  , promptVisible = False
   }
 
 scriptureDecoder : Decoder Scripture
@@ -50,6 +52,7 @@ type Msg
   = UpdateSearchBox String
   | Search
   | LoadScripture (Result Http.Error Scripture)
+  | TogglePrompt Bool
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -78,6 +81,12 @@ update msg model =
         , Cmd.none
       )
 
+    TogglePrompt show ->
+      (
+        { model | promptVisible = show }
+        , Cmd.none
+      )
+
 view : Model -> Html Msg
 view model =
   div []
@@ -87,6 +96,7 @@ view model =
       ]
     , div [ class "body" ]
       [ viewSearchBox model
+      , viewPrompt model
       , viewResult model
       ]
     ]
@@ -100,6 +110,8 @@ viewSearchBox model =
          , placeholder "Search for a verse..."
          , value model.searchText
          , onInput UpdateSearchBox
+         , onFocus (TogglePrompt True)
+         , onBlur (TogglePrompt False)
          ]
          []
        , button 
@@ -108,6 +120,13 @@ viewSearchBox model =
          ]
          [ text "Search" ]
        ]
+
+viewPrompt : Model -> Html Msg
+viewPrompt model =
+  if model.promptVisible then
+    div [ class "prompt" ] [ text "Prompt" ]
+  else
+    div [] []
 
 viewResult : Model -> Html Msg
 viewResult model =
