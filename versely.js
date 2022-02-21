@@ -5332,7 +5332,7 @@ var $author$project$Versely$init = function (_v0) {
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Versely$subscriptions = function (model) {
+var $author$project$Versely$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
 var $author$project$Versely$LoadScripture = function (a) {
@@ -6173,7 +6173,7 @@ var $author$project$Versely$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{error: $elm$core$Maybe$Nothing, searchText: ''}),
+						{error: $elm$core$Maybe$Nothing, scripture: $elm$core$Maybe$Nothing, searchText: ''}),
 					$author$project$Versely$fetchScripture(model.searchText));
 			default:
 				if (msg.a.$ === 'Ok') {
@@ -6217,7 +6217,10 @@ var $author$project$Versely$viewScripture = function (maybeScripture) {
 		var scripture = maybeScripture.a;
 		return A2(
 			$elm$html$Html$div,
-			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('scripture-card')
+				]),
 			_List_fromArray(
 				[
 					A2(
@@ -6243,7 +6246,6 @@ var $author$project$Versely$viewScripture = function (maybeScripture) {
 var $author$project$Versely$viewResult = function (model) {
 	var _v0 = model.error;
 	if (_v0.$ === 'Just') {
-		var error = _v0.a;
 		return A2(
 			$elm$html$Html$div,
 			_List_Nil,

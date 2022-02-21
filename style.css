@@ -27,12 +27,14 @@ input {
   font-size: xx-large;
   padding: 0.5rem;
   text-align: center;
-  transition: border-color 0.5s ease-in-out;
+  transition: border-color 0.5s ease-in-out,
+              background-color 0.5s ease-in-out;
 }
 
 input:focus {
   outline: none;
   border-color: var(--primary-colour);
+  background-color: white;
 }
 
 button {
@@ -61,8 +63,23 @@ button:disabled {
   cursor: not-allowed;
 }
 
+small {
+  color: var(--primary-colour);
+  font-size: large;
+}
+
 .search {
   display: flex;
   align-items: stretch;
   justify-content: center;
+}
+
+.scripture-card {
+  background-color: white;
+  box-shadow: 5px 5px 20px var(--secondary-colour);
+  margin-top: 5rem;
+  padding: 3rem;
+  padding-bottom: 1.5rem;
+  border-radius: 1rem;
+  font-size: 4ch;
 }

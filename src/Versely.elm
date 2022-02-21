@@ -1,12 +1,11 @@
 module Versely exposing (main)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, placeholder, src, type_, disabled, value)
-import Html.Events exposing (onClick, onInput, onSubmit)
+import Html.Attributes exposing (class, placeholder, type_, disabled, value)
+import Html.Events exposing (onInput, onSubmit)
 import Browser
-import Array exposing (Array)
-import Json.Decode exposing (Decoder, bool, decodeString, int, list, string, succeed)
-import Json.Decode.Pipeline exposing (hardcoded, required)
+import Json.Decode exposing (Decoder, string, succeed)
+import Json.Decode.Pipeline exposing (required)
 import Http
 
 type alias Model =
@@ -61,7 +60,7 @@ update msg model =
 
     Search ->
       (
-        { model | searchText = "", error = Nothing }
+        { model | searchText = "", scripture = Nothing, error = Nothing }
         , fetchScripture model.searchText
       )
 
@@ -111,7 +110,7 @@ viewSearchBox model =
 viewResult : Model -> Html Msg
 viewResult model =
   case model.error of
-    Just error ->
+    Just _ ->
       div []
           [ text "An error occured fetching the verse"]
 
@@ -122,7 +121,7 @@ viewScripture : Maybe Scripture -> Html Msg
 viewScripture maybeScripture =
     case maybeScripture of
       Just scripture ->
-        div []
+        div [ class "scripture-card" ]
             [ div []
                   [ text scripture.text ]
             , br [] []
@@ -133,7 +132,7 @@ viewScripture maybeScripture =
         div [] []
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
   Sub.none
 
 init : () -> (Model, Cmd Msg)
