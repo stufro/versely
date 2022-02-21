@@ -109,6 +109,15 @@ small {
   to { transform: rotate(360deg); }
 }
 
+@keyframes appear-from-top {
+  from { 
+    opacity: 20%;
+  }
+  to { 
+    opacity: 100%;
+  }
+}
+
 .prompt {
   background-color: white;
   box-shadow: 3px 3px 5px var(--secondary-colour); 
@@ -117,6 +126,8 @@ small {
   padding-top: 0;
   max-height: 15rem;
   overflow-y: scroll;
+  position: absolute;
+  animation: appear-from-top 0.3s linear 0s 1;
 }
 
 .prompt-result {
