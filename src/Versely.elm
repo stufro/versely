@@ -1,19 +1,22 @@
-module Versely exposing (main)
+port module Versely exposing (main)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, placeholder, type_, disabled, value, id, autocomplete)
-import Html.Events exposing (onInput, onSubmit, onFocus, onBlur)
+import Html.Events exposing (onInput, onSubmit, onFocus, onBlur, on, keyCode)
 import Browser
+import Json.Decode exposing (Decoder, string, succeed)
 import Json.Decode exposing (Decoder, string, succeed)
 import Json.Decode.Pipeline exposing (required)
 import Http
 import Html.Events exposing (onClick)
 import Browser.Dom as Dom exposing (focus)
 import Task exposing (attempt)
+import List.Extra as LE exposing (elemIndex, getAt)
 
 type alias Model =
   { searchText : String
   , searching : Bool
+  , searchHistory : List String
   , scripture : Maybe Scripture
   , error : Maybe Http.Error
   , promptVisible : Bool
@@ -29,6 +32,7 @@ initialModel : Model
 initialModel =
   { searchText = ""
   , searching = False
+  , searchHistory = []
   -- , scripture = Nothing
   , scripture = (Just { text = "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.", reference = "John 3:1", translation_name = "World English Bible" })
   , error = Nothing
@@ -71,40 +75,34 @@ update msg model =
         { model | searchText = text }
         , Cmd.none
       )
-
     Search ->
       (
-        { model | searchText = "", scripture = Nothing, error = Nothing, searching = True, promptVisible = False }
+        { model | searchText = "", scripture = Nothing, error = Nothing, searching = True, promptVisible = False, searchHistory = (LE.unique (model.searchText :: model.searchHistory)) }
         , fetchScripture model.searchText
       )
-
     LoadScripture (Ok scripture) ->
       (
         { model | scripture = Just scripture, searching = False }
         , Cmd.none
       )
-
     LoadScripture (Err error) ->
       (
         { model | error = Just error, searching = False }
         , Cmd.none
       )
-
     TogglePrompt show ->
       (
         { model | promptVisible = show }
         , Cmd.none
       )
-
     LoadPrompt prompt ->
       (
         { model | searchText = prompt }
         , Dom.focus "search-box" |> Task.attempt FocusOn
       )
-
     FocusOn result ->
       case result of
-        Err (Dom.NotFound id) ->
+        Err (Dom.NotFound _) ->
           ( model, Cmd.none )
         Ok () ->
           ( model, Cmd.none )
@@ -119,6 +117,7 @@ view model =
     , div [ class "body" ]
       [ viewSearchBox model
       , viewPrompt model
+      , viewRecentSearches model
       , viewResult model
       ]
     ]
@@ -143,6 +142,16 @@ viewSearchBox model =
          ]
          [ text "Search" ]
        ]
+
+viewRecentSearches : Model -> Html Msg
+viewRecentSearches model =
+  div [ class "recent-searches" ]
+      ( List.map viewRecentSearch model.searchHistory )
+
+viewRecentSearch : String -> Html Msg
+viewRecentSearch search =
+  div [ class "search-link", onClick (LoadPrompt search)]
+      [ text search ]
 
 viewPrompt : Model -> Html Msg
 viewPrompt model =
@@ -171,8 +180,7 @@ viewPrompt model =
 
 matchingBooks : String -> List String -> List String
 matchingBooks searchText books =
-  List.filter (
-                \book -> 
+  List.filter ( \book -> 
                   String.contains (String.toLower searchText) (String.toLower book)
               ) books
 
@@ -213,6 +221,8 @@ viewScripture maybeScripture =
             ] 
       Nothing ->
         div [] []
+
+port setStorage : List String -> Cmd msg
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =

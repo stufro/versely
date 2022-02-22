@@ -5324,6 +5324,7 @@ var $author$project$Versely$initialModel = {
 	promptVisible: false,
 	scripture: $elm$core$Maybe$Just(
 		{reference: 'John 3:1', text: 'Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.', translation_name: 'World English Bible'}),
+	searchHistory: _List_Nil,
 	searchText: '',
 	searching: false
 };
@@ -6189,6 +6190,73 @@ var $author$project$Versely$fetchScripture = function (search) {
 		});
 };
 var $elm$browser$Browser$Dom$focus = _Browser_call('focus');
+var $elm$core$List$any = F2(
+	function (isOkay, list) {
+		any:
+		while (true) {
+			if (!list.b) {
+				return false;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				if (isOkay(x)) {
+					return true;
+				} else {
+					var $temp$isOkay = isOkay,
+						$temp$list = xs;
+					isOkay = $temp$isOkay;
+					list = $temp$list;
+					continue any;
+				}
+			}
+		}
+	});
+var $elm$core$List$member = F2(
+	function (x, xs) {
+		return A2(
+			$elm$core$List$any,
+			function (a) {
+				return _Utils_eq(a, x);
+			},
+			xs);
+	});
+var $elm_community$list_extra$List$Extra$uniqueHelp = F4(
+	function (f, existing, remaining, accumulator) {
+		uniqueHelp:
+		while (true) {
+			if (!remaining.b) {
+				return $elm$core$List$reverse(accumulator);
+			} else {
+				var first = remaining.a;
+				var rest = remaining.b;
+				var computedFirst = f(first);
+				if (A2($elm$core$List$member, computedFirst, existing)) {
+					var $temp$f = f,
+						$temp$existing = existing,
+						$temp$remaining = rest,
+						$temp$accumulator = accumulator;
+					f = $temp$f;
+					existing = $temp$existing;
+					remaining = $temp$remaining;
+					accumulator = $temp$accumulator;
+					continue uniqueHelp;
+				} else {
+					var $temp$f = f,
+						$temp$existing = A2($elm$core$List$cons, computedFirst, existing),
+						$temp$remaining = rest,
+						$temp$accumulator = A2($elm$core$List$cons, first, accumulator);
+					f = $temp$f;
+					existing = $temp$existing;
+					remaining = $temp$remaining;
+					accumulator = $temp$accumulator;
+					continue uniqueHelp;
+				}
+			}
+		}
+	});
+var $elm_community$list_extra$List$Extra$unique = function (list) {
+	return A4($elm_community$list_extra$List$Extra$uniqueHelp, $elm$core$Basics$identity, _List_Nil, list, _List_Nil);
+};
 var $author$project$Versely$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
@@ -6203,7 +6271,15 @@ var $author$project$Versely$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchText: '', searching: true}),
+						{
+							error: $elm$core$Maybe$Nothing,
+							promptVisible: false,
+							scripture: $elm$core$Maybe$Nothing,
+							searchHistory: $elm_community$list_extra$List$Extra$unique(
+								A2($elm$core$List$cons, model.searchText, model.searchHistory)),
+							searchText: '',
+							searching: true
+						}),
 					$author$project$Versely$fetchScripture(model.searchText));
 			case 'LoadScripture':
 				if (msg.a.$ === 'Ok') {
@@ -6247,7 +6323,6 @@ var $author$project$Versely$update = F2(
 			default:
 				var result = msg.a;
 				if (result.$ === 'Err') {
-					var id = result.a.a;
 					return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 				} else {
 					return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
@@ -6388,6 +6463,29 @@ var $author$project$Versely$viewPrompt = function (model) {
 							A2($author$project$Versely$matchingBooks, model.searchText, $author$project$Versely$allBooks)))
 					]))
 			])) : A2($elm$html$Html$div, _List_Nil, _List_Nil);
+};
+var $author$project$Versely$viewRecentSearch = function (search) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('search-link'),
+				$elm$html$Html$Events$onClick(
+				$author$project$Versely$LoadPrompt(search))
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text(search)
+			]));
+};
+var $author$project$Versely$viewRecentSearches = function (model) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('recent-searches')
+			]),
+		A2($elm$core$List$map, $author$project$Versely$viewRecentSearch, model.searchHistory));
 };
 var $elm$html$Html$br = _VirtualDom_node('br');
 var $elm$html$Html$small = _VirtualDom_node('small');
@@ -6608,6 +6706,7 @@ var $author$project$Versely$view = function (model) {
 					[
 						$author$project$Versely$viewSearchBox(model),
 						$author$project$Versely$viewPrompt(model),
+						$author$project$Versely$viewRecentSearches(model),
 						$author$project$Versely$viewResult(model)
 					]))
 			]));
