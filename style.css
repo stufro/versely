@@ -150,3 +150,24 @@ small {
 .close-icon {
   cursor: pointer;
 }
+
+.recent-searches {
+  display: flex;
+  justify-content: center;
+}
+
+.search-link {
+  cursor: pointer;
+  border-left: 1px solid var(--secondary-colour);
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  color: var(--primary-colour)
+}
+
+.search-link:last-child {
+  border-right: 1px solid var(--secondary-colour);
+}
+
+.search-link:hover {
+  color: var(--primary-colour-accent)
+}

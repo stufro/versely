@@ -6507,11 +6507,18 @@ var $author$project$Versely$viewRecentSearch = function (search) {
 var $author$project$Versely$viewRecentSearches = function (model) {
 	return A2(
 		$elm$html$Html$div,
+		_List_Nil,
 		_List_fromArray(
 			[
-				$elm$html$Html$Attributes$class('recent-searches')
-			]),
-		A2($elm$core$List$map, $author$project$Versely$viewRecentSearch, model.searchHistory));
+				$elm$html$Html$text('Recent Searches'),
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('recent-searches')
+					]),
+				A2($elm$core$List$map, $author$project$Versely$viewRecentSearch, model.searchHistory))
+			]));
 };
 var $elm$html$Html$br = _VirtualDom_node('br');
 var $elm$html$Html$small = _VirtualDom_node('small');
