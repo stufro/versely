@@ -34,9 +34,8 @@ initialModel =
     { searchText = ""
     , searching = False
     , searchHistory = []
-
-    -- , scripture = Nothing
-    , scripture = Just { text = "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.", reference = "John 3:1", translation_name = "World English Bible" }
+    , scripture = Nothing
+    --, scripture = Just { text = "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews.", reference = "John 3:1", translation_name = "World English Bible" }
     , error = Nothing
     , promptVisible = False
     }
@@ -143,7 +142,7 @@ viewSearchBox model =
         [ input
             [ type_ "text"
             , id "search-box"
-            , placeholder "Search for a verse..."
+            , placeholder "Search for a verse... (e.g. Joshua 1:9)"
             , value model.searchText
             , onInput UpdateSearchBox
             , onFocus (TogglePrompt True)
