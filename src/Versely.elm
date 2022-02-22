@@ -58,6 +58,11 @@ fetchScripture search =
       url = "https://bible-api.com/" ++ search
       , expect  = Http.expectJson LoadScripture scriptureDecoder
     }
+  
+newSearchHistory : Model -> List String
+newSearchHistory model =
+  model.searchText :: model.searchHistory
+  |> LE.unique
 
 type Msg 
   = UpdateSearchBox String
@@ -77,8 +82,8 @@ update msg model =
       )
     Search ->
       (
-        { model | searchText = "", scripture = Nothing, error = Nothing, searching = True, promptVisible = False, searchHistory = (LE.unique (model.searchText :: model.searchHistory)) }
-        , fetchScripture model.searchText
+        { model | searchText = "", scripture = Nothing, error = Nothing, searching = True, promptVisible = False, searchHistory = (newSearchHistory model) }
+        , Cmd.batch [fetchScripture model.searchText, setStorage (newSearchHistory model)]
       )
     LoadScripture (Ok scripture) ->
       (

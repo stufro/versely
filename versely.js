@@ -6257,6 +6257,23 @@ var $elm_community$list_extra$List$Extra$uniqueHelp = F4(
 var $elm_community$list_extra$List$Extra$unique = function (list) {
 	return A4($elm_community$list_extra$List$Extra$uniqueHelp, $elm$core$Basics$identity, _List_Nil, list, _List_Nil);
 };
+var $author$project$Versely$newSearchHistory = function (model) {
+	return $elm_community$list_extra$List$Extra$unique(
+		A2($elm$core$List$cons, model.searchText, model.searchHistory));
+};
+var $elm$json$Json$Encode$list = F2(
+	function (func, entries) {
+		return _Json_wrap(
+			A3(
+				$elm$core$List$foldl,
+				_Json_addEntry(func),
+				_Json_emptyArray(_Utils_Tuple0),
+				entries));
+	});
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $author$project$Versely$setStorage = _Platform_outgoingPort(
+	'setStorage',
+	$elm$json$Json$Encode$list($elm$json$Json$Encode$string));
 var $author$project$Versely$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
@@ -6275,12 +6292,17 @@ var $author$project$Versely$update = F2(
 							error: $elm$core$Maybe$Nothing,
 							promptVisible: false,
 							scripture: $elm$core$Maybe$Nothing,
-							searchHistory: $elm_community$list_extra$List$Extra$unique(
-								A2($elm$core$List$cons, model.searchText, model.searchHistory)),
+							searchHistory: $author$project$Versely$newSearchHistory(model),
 							searchText: '',
 							searching: true
 						}),
-					$author$project$Versely$fetchScripture(model.searchText));
+					$elm$core$Platform$Cmd$batch(
+						_List_fromArray(
+							[
+								$author$project$Versely$fetchScripture(model.searchText),
+								$author$project$Versely$setStorage(
+								$author$project$Versely$newSearchHistory(model))
+							])));
 			case 'LoadScripture':
 				if (msg.a.$ === 'Ok') {
 					var scripture = msg.a.a;
@@ -6329,7 +6351,6 @@ var $author$project$Versely$update = F2(
 				}
 		}
 	});
-var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
 		return A2(
