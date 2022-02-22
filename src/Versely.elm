@@ -233,11 +233,11 @@ subscriptions : Model -> Sub Msg
 subscriptions _ =
   Sub.none
 
-init : () -> (Model, Cmd Msg)
-init () =
-  ( initialModel, Cmd.none )
+init : List String -> (Model, Cmd Msg)
+init searchHistory =
+  ( { initialModel | searchHistory = searchHistory }, Cmd.none )
 
-main : Program () Model Msg
+main : Program (List String) Model Msg
 main =
     Browser.element
         { init = init

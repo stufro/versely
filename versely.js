@@ -5330,9 +5330,15 @@ var $author$project$Versely$initialModel = {
 };
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Versely$init = function (_v0) {
-	return _Utils_Tuple2($author$project$Versely$initialModel, $elm$core$Platform$Cmd$none);
+var $author$project$Versely$init = function (searchHistory) {
+	return _Utils_Tuple2(
+		_Utils_update(
+			$author$project$Versely$initialModel,
+			{searchHistory: searchHistory}),
+		$elm$core$Platform$Cmd$none);
 };
+var $elm$json$Json$Decode$list = _Json_decodeList;
+var $elm$json$Json$Decode$string = _Json_decodeString;
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Versely$subscriptions = function (_v0) {
@@ -6168,7 +6174,6 @@ var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required = F3(
 			A2($elm$json$Json$Decode$field, key, valDecoder),
 			decoder);
 	});
-var $elm$json$Json$Decode$string = _Json_decodeString;
 var $author$project$Versely$scriptureDecoder = A3(
 	$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
 	'translation_name',
@@ -6735,4 +6740,4 @@ var $author$project$Versely$view = function (model) {
 var $author$project$Versely$main = $elm$browser$Browser$element(
 	{init: $author$project$Versely$init, subscriptions: $author$project$Versely$subscriptions, update: $author$project$Versely$update, view: $author$project$Versely$view});
 _Platform_export({'Versely':{'init':$author$project$Versely$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
+	$elm$json$Json$Decode$list($elm$json$Json$Decode$string))(0)}});}(this));
