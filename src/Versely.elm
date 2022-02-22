@@ -68,6 +68,7 @@ newSearchHistory model =
     model.searchText
         :: model.searchHistory
         |> LE.unique
+        |> List.take 10
 
 
 type Msg
