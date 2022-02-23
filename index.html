@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
   var storedState = localStorage.getItem('search-history');
-  var startingState = storedState ? JSON.parse(storedState) : null;
+  var startingState = storedState ? JSON.parse(storedState) : [];
   var app = Elm.Versely.init({
     node: document.getElementById('main'),
     flags: startingState
