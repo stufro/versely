@@ -4,3 +4,438 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom	versely.js	/^var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom = $elm$json$Json$Decode$map2($elm$core$Basics$apR);$/;"	v
+$author$project$Versely$FocusOn	versely.js	/^var $author$project$Versely$FocusOn = function (a) {$/;"	f
+$author$project$Versely$LoadPrompt	versely.js	/^var $author$project$Versely$LoadPrompt = function (a) {$/;"	f
+$author$project$Versely$LoadScripture	versely.js	/^var $author$project$Versely$LoadScripture = function (a) {$/;"	f
+$author$project$Versely$Search.$	versely.js	/^var $author$project$Versely$Search = {$: 'Search'};$/;"	p
+$author$project$Versely$TogglePrompt	versely.js	/^var $author$project$Versely$TogglePrompt = function (a) {$/;"	f
+$author$project$Versely$UpdateSearchBox	versely.js	/^var $author$project$Versely$UpdateSearchBox = function (a) {$/;"	f
+$author$project$Versely$fetchScripture	versely.js	/^var $author$project$Versely$fetchScripture = function (search) {$/;"	f
+$author$project$Versely$init	versely.js	/^var $author$project$Versely$init = function (searchHistory) {$/;"	f
+$author$project$Versely$initialModel.error	versely.js	/^var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchHistory: _List_Nil, searchText: '', searching: false};$/;"	p
+$author$project$Versely$initialModel.promptVisible	versely.js	/^var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchHistory: _List_Nil, searchText: '', searching: false};$/;"	p
+$author$project$Versely$initialModel.scripture	versely.js	/^var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchHistory: _List_Nil, searchText: '', searching: false};$/;"	p
+$author$project$Versely$initialModel.searchHistory	versely.js	/^var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchHistory: _List_Nil, searchText: '', searching: false};$/;"	p
+$author$project$Versely$initialModel.searchText	versely.js	/^var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchHistory: _List_Nil, searchText: '', searching: false};$/;"	p
+$author$project$Versely$initialModel.searching	versely.js	/^var $author$project$Versely$initialModel = {error: $elm$core$Maybe$Nothing, promptVisible: false, scripture: $elm$core$Maybe$Nothing, searchHistory: _List_Nil, searchText: '', searching: false};$/;"	p
+$author$project$Versely$main	versely.js	/^var $author$project$Versely$main = $elm$browser$Browser$element($/;"	v
+$author$project$Versely$newSearchHistory	versely.js	/^var $author$project$Versely$newSearchHistory = function (model) {$/;"	f
+$author$project$Versely$subscriptions	versely.js	/^var $author$project$Versely$subscriptions = function (_v0) {$/;"	f
+$author$project$Versely$view	versely.js	/^var $author$project$Versely$view = function (model) {$/;"	f
+$author$project$Versely$viewBookPrompt	versely.js	/^var $author$project$Versely$viewBookPrompt = function (book) {$/;"	f
+$author$project$Versely$viewPrompt	versely.js	/^var $author$project$Versely$viewPrompt = function (model) {$/;"	f
+$author$project$Versely$viewRecentSearch	versely.js	/^var $author$project$Versely$viewRecentSearch = function (search) {$/;"	f
+$author$project$Versely$viewRecentSearches	versely.js	/^var $author$project$Versely$viewRecentSearches = function (model) {$/;"	f
+$author$project$Versely$viewResult	versely.js	/^var $author$project$Versely$viewResult = function (model) {$/;"	f
+$author$project$Versely$viewScripture	versely.js	/^var $author$project$Versely$viewScripture = function (maybeScripture) {$/;"	f
+$author$project$Versely$viewSearchBox	versely.js	/^var $author$project$Versely$viewSearchBox = function (model) {$/;"	f
+$elm$browser$Browser$Dom$NotFound	versely.js	/^var $elm$browser$Browser$Dom$NotFound = function (a) {$/;"	f
+$elm$browser$Browser$Dom$focus	versely.js	/^var $elm$browser$Browser$Dom$focus = _Browser_call('focus');$/;"	v
+$elm$browser$Browser$External	versely.js	/^var $elm$browser$Browser$External = function (a) {$/;"	f
+$elm$browser$Browser$Internal	versely.js	/^var $elm$browser$Browser$Internal = function (a) {$/;"	f
+$elm$browser$Browser$element	versely.js	/^var $elm$browser$Browser$element = _Browser_element;$/;"	v
+$elm$core$Array$Leaf	versely.js	/^var $elm$core$Array$Leaf = function (a) {$/;"	f
+$elm$core$Array$SubTree	versely.js	/^var $elm$core$Array$SubTree = function (a) {$/;"	f
+$elm$core$Array$branchFactor	versely.js	/^var $elm$core$Array$branchFactor = 32;$/;"	v
+$elm$core$Array$shiftStep	versely.js	/^var $elm$core$Array$shiftStep = $elm$core$Basics$ceiling($/;"	v
+$elm$core$Array$toList	versely.js	/^var $elm$core$Array$toList = function (array) {$/;"	f
+$elm$core$Basics$EQ.$	versely.js	/^}var $elm$core$Basics$EQ = {$: 'EQ'};$/;"	p
+$elm$core$Basics$False.$	versely.js	/^var $elm$core$Basics$False = {$: 'False'};$/;"	p
+$elm$core$Basics$GT.$	versely.js	/^var $elm$core$Basics$GT = {$: 'GT'};$/;"	p
+$elm$core$Basics$LT.$	versely.js	/^var $elm$core$Basics$LT = {$: 'LT'};$/;"	p
+$elm$core$Basics$True.$	versely.js	/^var $elm$core$Basics$True = {$: 'True'};$/;"	p
+$elm$core$Basics$add	versely.js	/^var $elm$core$Basics$add = _Basics_add;$/;"	v
+$elm$core$Basics$and	versely.js	/^var $elm$core$Basics$and = _Basics_and;$/;"	v
+$elm$core$Basics$append	versely.js	/^var $elm$core$Basics$append = _Utils_append;$/;"	v
+$elm$core$Basics$ceiling	versely.js	/^var $elm$core$Basics$ceiling = _Basics_ceiling;$/;"	v
+$elm$core$Basics$compare	versely.js	/^var $elm$core$Basics$compare = _Utils_compare;$/;"	v
+$elm$core$Basics$eq	versely.js	/^var $elm$core$Basics$eq = _Utils_equal;$/;"	v
+$elm$core$Basics$fdiv	versely.js	/^var $elm$core$Basics$fdiv = _Basics_fdiv;$/;"	v
+$elm$core$Basics$floor	versely.js	/^var $elm$core$Basics$floor = _Basics_floor;$/;"	v
+$elm$core$Basics$gt	versely.js	/^var $elm$core$Basics$gt = _Utils_gt;$/;"	v
+$elm$core$Basics$identity	versely.js	/^var $elm$core$Basics$identity = function (x) {$/;"	f
+$elm$core$Basics$idiv	versely.js	/^var $elm$core$Basics$idiv = _Basics_idiv;$/;"	v
+$elm$core$Basics$le	versely.js	/^var $elm$core$Basics$le = _Utils_le;$/;"	v
+$elm$core$Basics$lt	versely.js	/^var $elm$core$Basics$lt = _Utils_lt;$/;"	v
+$elm$core$Basics$mul	versely.js	/^var $elm$core$Basics$mul = _Basics_mul;$/;"	v
+$elm$core$Basics$never	versely.js	/^var $elm$core$Basics$never = function (_v0) {$/;"	f
+$elm$core$Basics$or	versely.js	/^var $elm$core$Basics$or = _Basics_or;$/;"	v
+$elm$core$Basics$remainderBy	versely.js	/^var $elm$core$Basics$remainderBy = _Basics_remainderBy;$/;"	v
+$elm$core$Basics$sub	versely.js	/^var $elm$core$Basics$sub = _Basics_sub;$/;"	v
+$elm$core$Char$isAlpha	versely.js	/^var $elm$core$Char$isAlpha = function (_char) {$/;"	f
+$elm$core$Char$isAlphaNum	versely.js	/^var $elm$core$Char$isAlphaNum = function (_char) {$/;"	f
+$elm$core$Char$isDigit	versely.js	/^var $elm$core$Char$isDigit = function (_char) {$/;"	f
+$elm$core$Char$isLower	versely.js	/^var $elm$core$Char$isLower = function (_char) {$/;"	f
+$elm$core$Char$isUpper	versely.js	/^var $elm$core$Char$isUpper = function (_char) {$/;"	f
+$elm$core$Dict$Black.$	versely.js	/^var $elm$core$Dict$Black = {$: 'Black'};$/;"	p
+$elm$core$Dict$RBEmpty_elm_builtin.$	versely.js	/^var $elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};$/;"	p
+$elm$core$Dict$Red.$	versely.js	/^var $elm$core$Dict$Red = {$: 'Red'};$/;"	p
+$elm$core$Dict$empty	versely.js	/^var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;$/;"	v
+$elm$core$Dict$getMin	versely.js	/^var $elm$core$Dict$getMin = function (dict) {$/;"	f
+$elm$core$Dict$keys	versely.js	/^var $elm$core$Dict$keys = function (dict) {$/;"	f
+$elm$core$Dict$moveRedLeft	versely.js	/^var $elm$core$Dict$moveRedLeft = function (dict) {$/;"	f
+$elm$core$Dict$moveRedRight	versely.js	/^var $elm$core$Dict$moveRedRight = function (dict) {$/;"	f
+$elm$core$Dict$removeMin	versely.js	/^var $elm$core$Dict$removeMin = function (dict) {$/;"	f
+$elm$core$Dict$toList	versely.js	/^var $elm$core$Dict$toList = function (dict) {$/;"	f
+$elm$core$Elm$JsArray$empty	versely.js	/^var $elm$core$Elm$JsArray$empty = _JsArray_empty;$/;"	v
+$elm$core$Elm$JsArray$foldr	versely.js	/^var $elm$core$Elm$JsArray$foldr = _JsArray_foldr;$/;"	v
+$elm$core$Elm$JsArray$initialize	versely.js	/^var $elm$core$Elm$JsArray$initialize = _JsArray_initialize;$/;"	v
+$elm$core$Elm$JsArray$initializeFromList	versely.js	/^var $elm$core$Elm$JsArray$initializeFromList = _JsArray_initializeFromList;$/;"	v
+$elm$core$List$cons	versely.js	/^var $elm$core$List$cons = _List_cons;$/;"	v
+$elm$core$List$length	versely.js	/^var $elm$core$List$length = function (xs) {$/;"	f
+$elm$core$List$map2	versely.js	/^var $elm$core$List$map2 = _List_map2;$/;"	v
+$elm$core$List$reverse	versely.js	/^var $elm$core$List$reverse = function (list) {$/;"	f
+$elm$core$Maybe$Just	versely.js	/^var $elm$core$Maybe$Just = function (a) {$/;"	f
+$elm$core$Maybe$Nothing.$	versely.js	/^var $elm$core$Maybe$Nothing = {$: 'Nothing'};$/;"	p
+$elm$core$Maybe$isJust	versely.js	/^var $elm$core$Maybe$isJust = function (maybe) {$/;"	f
+$elm$core$Platform$Cmd$none	versely.js	/^var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);$/;"	v
+$elm$core$Platform$Sub$none	versely.js	/^var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);$/;"	v
+$elm$core$Platform$sendToApp	versely.js	/^var $elm$core$Platform$sendToApp = _Platform_sendToApp;$/;"	v
+$elm$core$Platform$sendToSelf	versely.js	/^var $elm$core$Platform$sendToSelf = _Platform_sendToSelf;$/;"	v
+$elm$core$Result$Err	versely.js	/^var $elm$core$Result$Err = function (a) {$/;"	f
+$elm$core$Result$Ok	versely.js	/^var $elm$core$Result$Ok = function (a) {$/;"	f
+$elm$core$Result$isOk	versely.js	/^var $elm$core$Result$isOk = function (result) {$/;"	f
+$elm$core$Set$toList	versely.js	/^var $elm$core$Set$toList = function (_v0) {$/;"	f
+$elm$core$String$all	versely.js	/^var $elm$core$String$all = _String_all;$/;"	v
+$elm$core$String$contains	versely.js	/^var $elm$core$String$contains = _String_contains;$/;"	v
+$elm$core$String$indexes	versely.js	/^var $elm$core$String$indexes = _String_indexes;$/;"	v
+$elm$core$String$isEmpty	versely.js	/^var $elm$core$String$isEmpty = function (string) {$/;"	f
+$elm$core$String$slice	versely.js	/^var $elm$core$String$slice = _String_slice;$/;"	v
+$elm$core$String$startsWith	versely.js	/^var $elm$core$String$startsWith = _String_startsWith;$/;"	v
+$elm$core$Task$Perform	versely.js	/^var $elm$core$Task$Perform = function (a) {$/;"	f
+$elm$core$Task$andThen	versely.js	/^var $elm$core$Task$andThen = _Scheduler_andThen;$/;"	v
+$elm$core$Task$init	versely.js	/^var $elm$core$Task$init = $elm$core$Task$succeed(_Utils_Tuple0);$/;"	v
+$elm$core$Task$onError	versely.js	/^var $elm$core$Task$onError = _Scheduler_onError;$/;"	v
+$elm$core$Task$sequence	versely.js	/^var $elm$core$Task$sequence = function (tasks) {$/;"	f
+$elm$core$Tuple$first	versely.js	/^var $elm$core$Tuple$first = function (_v0) {$/;"	f
+$elm$html$Html$Attributes$autocomplete	versely.js	/^var $elm$html$Html$Attributes$autocomplete = function (bool) {$/;"	f
+$elm$html$Html$Attributes$class	versely.js	/^var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');$/;"	v
+$elm$html$Html$Attributes$disabled	versely.js	/^var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');$/;"	v
+$elm$html$Html$Attributes$id	versely.js	/^var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');$/;"	v
+$elm$html$Html$Attributes$placeholder	versely.js	/^var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');$/;"	v
+$elm$html$Html$Attributes$type_	versely.js	/^var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');$/;"	v
+$elm$html$Html$Attributes$value	versely.js	/^var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');$/;"	v
+$elm$html$Html$Events$alwaysPreventDefault	versely.js	/^var $elm$html$Html$Events$alwaysPreventDefault = function (msg) {$/;"	f
+$elm$html$Html$Events$alwaysStop	versely.js	/^var $elm$html$Html$Events$alwaysStop = function (x) {$/;"	f
+$elm$html$Html$Events$onClick	versely.js	/^var $elm$html$Html$Events$onClick = function (msg) {$/;"	f
+$elm$html$Html$Events$onFocus	versely.js	/^var $elm$html$Html$Events$onFocus = function (msg) {$/;"	f
+$elm$html$Html$Events$onInput	versely.js	/^var $elm$html$Html$Events$onInput = function (tagger) {$/;"	f
+$elm$html$Html$Events$onSubmit	versely.js	/^var $elm$html$Html$Events$onSubmit = function (msg) {$/;"	f
+$elm$html$Html$br	versely.js	/^var $elm$html$Html$br = _VirtualDom_node('br');$/;"	v
+$elm$html$Html$button	versely.js	/^var $elm$html$Html$button = _VirtualDom_node('button');$/;"	v
+$elm$html$Html$div	versely.js	/^var $elm$html$Html$div = _VirtualDom_node('div');$/;"	v
+$elm$html$Html$form	versely.js	/^var $elm$html$Html$form = _VirtualDom_node('form');$/;"	v
+$elm$html$Html$h1	versely.js	/^var $elm$html$Html$h1 = _VirtualDom_node('h1');$/;"	v
+$elm$html$Html$h3	versely.js	/^var $elm$html$Html$h3 = _VirtualDom_node('h3');$/;"	v
+$elm$html$Html$input	versely.js	/^var $elm$html$Html$input = _VirtualDom_node('input');$/;"	v
+$elm$html$Html$small	versely.js	/^var $elm$html$Html$small = _VirtualDom_node('small');$/;"	v
+$elm$html$Html$span	versely.js	/^var $elm$html$Html$span = _VirtualDom_node('span');$/;"	v
+$elm$html$Html$text	versely.js	/^var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;$/;"	v
+$elm$http$Http$BadBody	versely.js	/^var $elm$http$Http$BadBody = function (a) {$/;"	f
+$elm$http$Http$BadStatus	versely.js	/^var $elm$http$Http$BadStatus = function (a) {$/;"	f
+$elm$http$Http$BadUrl	versely.js	/^var $elm$http$Http$BadUrl = function (a) {$/;"	f
+$elm$http$Http$BadUrl_	versely.js	/^var $elm$http$Http$BadUrl_ = function (a) {$/;"	f
+$elm$http$Http$Cancel	versely.js	/^var $elm$http$Http$Cancel = function (a) {$/;"	f
+$elm$http$Http$NetworkError.$	versely.js	/^var $elm$http$Http$NetworkError = {$: 'NetworkError'};$/;"	p
+$elm$http$Http$NetworkError_.$	versely.js	/^var $elm$http$Http$NetworkError_ = {$: 'NetworkError_'};$/;"	p
+$elm$http$Http$Receiving	versely.js	/^var $elm$http$Http$Receiving = function (a) {$/;"	f
+$elm$http$Http$Request	versely.js	/^var $elm$http$Http$Request = function (a) {$/;"	f
+$elm$http$Http$Sending	versely.js	/^var $elm$http$Http$Sending = function (a) {$/;"	f
+$elm$http$Http$Timeout.$	versely.js	/^var $elm$http$Http$Timeout = {$: 'Timeout'};$/;"	p
+$elm$http$Http$Timeout_.$	versely.js	/^var $elm$http$Http$Timeout_ = {$: 'Timeout_'};$/;"	p
+$elm$http$Http$emptyBody	versely.js	/^var $elm$http$Http$emptyBody = _Http_emptyBody;$/;"	v
+$elm$http$Http$get	versely.js	/^var $elm$http$Http$get = function (r) {$/;"	f
+$elm$http$Http$init	versely.js	/^var $elm$http$Http$init = $elm$core$Task$succeed($/;"	v
+$elm$http$Http$request	versely.js	/^var $elm$http$Http$request = function (r) {$/;"	f
+$elm$json$Json$Decode$OneOf	versely.js	/^var $elm$json$Json$Decode$OneOf = function (a) {$/;"	f
+$elm$json$Json$Decode$decodeString	versely.js	/^var $elm$json$Json$Decode$decodeString = _Json_runOnString;$/;"	v
+$elm$json$Json$Decode$errorToString	versely.js	/^var $elm$json$Json$Decode$errorToString = function (error) {$/;"	f
+$elm$json$Json$Decode$field	versely.js	/^var $elm$json$Json$Decode$field = _Json_decodeField;$/;"	v
+$elm$json$Json$Decode$indent	versely.js	/^var $elm$json$Json$Decode$indent = function (str) {$/;"	f
+$elm$json$Json$Decode$map	versely.js	/^var $elm$json$Json$Decode$map = _Json_map1;$/;"	v
+$elm$json$Json$Decode$map2	versely.js	/^var $elm$json$Json$Decode$map2 = _Json_map2;$/;"	v
+$elm$json$Json$Decode$string	versely.js	/^var $elm$json$Json$Decode$string = _Json_decodeString;$/;"	v
+$elm$json$Json$Encode$encode	versely.js	/^var $elm$json$Json$Encode$encode = _Json_encode;$/;"	v
+$elm$url$Url$Http.$	versely.js	/^var $elm$url$Url$Http = {$: 'Http'};$/;"	p
+$elm$url$Url$Https.$	versely.js	/^var $elm$url$Url$Https = {$: 'Https'};$/;"	p
+$elm$url$Url$fromString	versely.js	/^var $elm$url$Url$fromString = function (str) {$/;"	f
+$elm$virtual_dom$VirtualDom$MayPreventDefault	versely.js	/^var $elm$virtual_dom$VirtualDom$MayPreventDefault = function (a) {$/;"	f
+$elm$virtual_dom$VirtualDom$MayStopPropagation	versely.js	/^var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {$/;"	f
+$elm$virtual_dom$VirtualDom$Normal	versely.js	/^var $elm$virtual_dom$VirtualDom$Normal = function (a) {$/;"	f
+$elm$virtual_dom$VirtualDom$on	versely.js	/^var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;$/;"	v
+$elm$virtual_dom$VirtualDom$toHandlerInt	versely.js	/^var $elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {$/;"	f
+$elm_community$list_extra$List$Extra$unique	versely.js	/^var $elm_community$list_extra$List$Extra$unique = function (list) {$/;"	f
+A2	versely.js	/^function A2(fun, a, b) {$/;"	f
+A3	versely.js	/^function A3(fun, a, b, c) {$/;"	f
+A4	versely.js	/^function A4(fun, a, b, c, d) {$/;"	f
+A5	versely.js	/^function A5(fun, a, b, c, d, e) {$/;"	f
+A6	versely.js	/^function A6(fun, a, b, c, d, e, f) {$/;"	f
+A7	versely.js	/^function A7(fun, a, b, c, d, e, f, g) {$/;"	f
+A8	versely.js	/^function A8(fun, a, b, c, d, e, f, g, h) {$/;"	f
+A9	versely.js	/^function A9(fun, a, b, c, d, e, f, g, h, i) {$/;"	f
+F	versely.js	/^function F(arity, fun, wrapper) {$/;"	f
+F2	versely.js	/^function F2(fun) {$/;"	f
+F3	versely.js	/^function F3(fun) {$/;"	f
+F4	versely.js	/^function F4(fun) {$/;"	f
+F5	versely.js	/^function F5(fun) {$/;"	f
+F6	versely.js	/^function F6(fun) {$/;"	f
+F7	versely.js	/^function F7(fun) {$/;"	f
+F8	versely.js	/^function F8(fun) {$/;"	f
+F9	versely.js	/^function F9(fun) {$/;"	f
+_Basics_acos	versely.js	/^var _Basics_acos = Math.acos;$/;"	v
+_Basics_asin	versely.js	/^var _Basics_asin = Math.asin;$/;"	v
+_Basics_atan	versely.js	/^var _Basics_atan = Math.atan;$/;"	v
+_Basics_ceiling	versely.js	/^var _Basics_ceiling = Math.ceil;$/;"	v
+_Basics_cos	versely.js	/^var _Basics_cos = Math.cos;$/;"	v
+_Basics_e	versely.js	/^var _Basics_e = Math.E;$/;"	v
+_Basics_floor	versely.js	/^var _Basics_floor = Math.floor;$/;"	v
+_Basics_isInfinite	versely.js	/^function _Basics_isInfinite(n) { return n === Infinity || n === -Infinity; }$/;"	f
+_Basics_isNaN	versely.js	/^var _Basics_isNaN = isNaN;$/;"	v
+_Basics_log	versely.js	/^var _Basics_log = Math.log;$/;"	v
+_Basics_not	versely.js	/^function _Basics_not(bool) { return !bool; }$/;"	f
+_Basics_pi	versely.js	/^var _Basics_pi = Math.PI;$/;"	v
+_Basics_round	versely.js	/^var _Basics_round = Math.round;$/;"	v
+_Basics_sin	versely.js	/^var _Basics_sin = Math.sin;$/;"	v
+_Basics_sqrt	versely.js	/^var _Basics_sqrt = Math.sqrt;$/;"	v
+_Basics_tan	versely.js	/^var _Basics_tan = Math.tan;$/;"	v
+_Basics_toFloat	versely.js	/^function _Basics_toFloat(x) { return x; }$/;"	f
+_Basics_truncate	versely.js	/^function _Basics_truncate(n) { return n | 0; }$/;"	f
+_Browser_application	versely.js	/^function _Browser_application(impl)$/;"	f
+_Browser_application.key	versely.js	/^	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };$/;"	f
+_Browser_doc	versely.js	/^var _Browser_doc = typeof document !== 'undefined' ? document : _Browser_fakeNode;$/;"	v
+_Browser_document	versely.js	/^var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, debugMetadata, args)$/;"	v
+_Browser_element	versely.js	/^var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debugMetadata, args)$/;"	v
+_Browser_fakeNode.addEventListener	versely.js	/^var _Browser_fakeNode = { addEventListener: function() {}, removeEventListener: function() {} };$/;"	m
+_Browser_fakeNode.removeEventListener	versely.js	/^var _Browser_fakeNode = { addEventListener: function() {}, removeEventListener: function() {} };$/;"	m
+_Browser_getElement	versely.js	/^function _Browser_getElement(id)$/;"	f
+_Browser_getScene	versely.js	/^function _Browser_getScene()$/;"	f
+_Browser_getUrl	versely.js	/^function _Browser_getUrl()$/;"	f
+_Browser_getViewport	versely.js	/^function _Browser_getViewport()$/;"	f
+_Browser_getViewportOf	versely.js	/^function _Browser_getViewportOf(id)$/;"	f
+_Browser_load	versely.js	/^function _Browser_load(url)$/;"	f
+_Browser_makeAnimator	versely.js	/^function _Browser_makeAnimator(model, draw)$/;"	f
+_Browser_makeAnimator.updateIfNeeded	versely.js	/^	function updateIfNeeded()$/;"	f
+_Browser_now	versely.js	/^function _Browser_now()$/;"	f
+_Browser_rAF	versely.js	/^function _Browser_rAF()$/;"	f
+_Browser_reload	versely.js	/^function _Browser_reload(skipCache)$/;"	f
+_Browser_visibilityInfo	versely.js	/^function _Browser_visibilityInfo()$/;"	f
+_Browser_window	versely.js	/^var _Browser_window = typeof window !== 'undefined' ? window : _Browser_fakeNode;$/;"	v
+_Browser_withNode	versely.js	/^function _Browser_withNode(id, doStuff)$/;"	f
+_Browser_withWindow	versely.js	/^function _Browser_withWindow(doStuff)$/;"	f
+_Char_fromCode	versely.js	/^function _Char_fromCode(code)$/;"	f
+_Char_toCode	versely.js	/^function _Char_toCode(char)$/;"	f
+_Char_toLocaleLower	versely.js	/^function _Char_toLocaleLower(char)$/;"	f
+_Char_toLocaleUpper	versely.js	/^function _Char_toLocaleUpper(char)$/;"	f
+_Char_toLower	versely.js	/^function _Char_toLower(char)$/;"	f
+_Char_toUpper	versely.js	/^function _Char_toUpper(char)$/;"	f
+_Debug_addSlashes	versely.js	/^function _Debug_addSlashes(str, isChar)$/;"	f
+_Debug_charColor	versely.js	/^function _Debug_charColor(ansi, string)$/;"	f
+_Debug_crash	versely.js	/^function _Debug_crash(identifier, fact1, fact2, fact3, fact4)$/;"	f
+_Debug_crash_UNUSED	versely.js	/^function _Debug_crash_UNUSED(identifier)$/;"	f
+_Debug_ctorColor	versely.js	/^function _Debug_ctorColor(ansi, string)$/;"	f
+_Debug_fadeColor	versely.js	/^function _Debug_fadeColor(ansi, string)$/;"	f
+_Debug_internalColor	versely.js	/^function _Debug_internalColor(ansi, string)$/;"	f
+_Debug_numberColor	versely.js	/^function _Debug_numberColor(ansi, string)$/;"	f
+_Debug_regionToString	versely.js	/^function _Debug_regionToString(region)$/;"	f
+_Debug_stringColor	versely.js	/^function _Debug_stringColor(ansi, string)$/;"	f
+_Debug_toAnsiString	versely.js	/^function _Debug_toAnsiString(ansi, value)$/;"	f
+_Debug_toHexDigit	versely.js	/^function _Debug_toHexDigit(n)$/;"	f
+_Debug_toString	versely.js	/^function _Debug_toString(value)$/;"	f
+_Debug_toString_UNUSED	versely.js	/^function _Debug_toString_UNUSED(value)$/;"	f
+_Debug_todo	versely.js	/^function _Debug_todo(moduleName, region)$/;"	f
+_Debug_todoCase	versely.js	/^function _Debug_todoCase(moduleName, region, value)$/;"	f
+_Debugger_document	versely.js	/^var _Debugger_document;$/;"	v
+_Debugger_element	versely.js	/^var _Debugger_element;$/;"	v
+_Http_configureRequest	versely.js	/^function _Http_configureRequest(xhr, request)$/;"	f
+_Http_emptyBody.$	versely.js	/^var _Http_emptyBody = { $: 0 };$/;"	p
+_Http_parseHeaders	versely.js	/^function _Http_parseHeaders(rawHeaders)$/;"	f
+_Http_toDataView	versely.js	/^function _Http_toDataView(arrayBuffer)$/;"	f
+_Http_toFormData	versely.js	/^function _Http_toFormData(parts)$/;"	f
+_Http_toMetadata	versely.js	/^function _Http_toMetadata(xhr)$/;"	f
+_Http_toResponse	versely.js	/^function _Http_toResponse(toBody, xhr)$/;"	f
+_Http_track	versely.js	/^function _Http_track(router, xhr, tracker)$/;"	f
+_JsArray_empty	versely.js	/^var _JsArray_empty = [];$/;"	v
+_JsArray_length	versely.js	/^function _JsArray_length(array)$/;"	f
+_JsArray_singleton	versely.js	/^function _JsArray_singleton(value)$/;"	f
+_Json_addEntry	versely.js	/^function _Json_addEntry(func)$/;"	f
+_Json_decodeArray	versely.js	/^function _Json_decodeArray(decoder) { return { $: 4, b: decoder }; }$/;"	f
+_Json_decodeKeyValuePairs	versely.js	/^function _Json_decodeKeyValuePairs(decoder)$/;"	f
+_Json_decodeList	versely.js	/^function _Json_decodeList(decoder) { return { $: 3, b: decoder }; }$/;"	f
+_Json_decodeNull	versely.js	/^function _Json_decodeNull(value) { return { $: 5, c: value }; }$/;"	f
+_Json_decodePrim	versely.js	/^function _Json_decodePrim(decoder)$/;"	f
+_Json_emptyArray	versely.js	/^function _Json_emptyArray() { return []; }$/;"	f
+_Json_emptyObject	versely.js	/^function _Json_emptyObject() { return {}; }$/;"	f
+_Json_equality	versely.js	/^function _Json_equality(x, y)$/;"	f
+_Json_errorToString	versely.js	/^function _Json_errorToString(error)$/;"	f
+_Json_expecting	versely.js	/^function _Json_expecting(type, value)$/;"	f
+_Json_fail	versely.js	/^function _Json_fail(msg)$/;"	f
+_Json_isArray	versely.js	/^function _Json_isArray(value)$/;"	f
+_Json_listEquality	versely.js	/^function _Json_listEquality(aDecoders, bDecoders)$/;"	f
+_Json_mapMany	versely.js	/^function _Json_mapMany(f, decoders)$/;"	f
+_Json_oneOf	versely.js	/^function _Json_oneOf(decoders)$/;"	f
+_Json_runArrayDecoder	versely.js	/^function _Json_runArrayDecoder(decoder, value, toElmValue)$/;"	f
+_Json_runHelp	versely.js	/^function _Json_runHelp(decoder, value)$/;"	f
+_Json_succeed	versely.js	/^function _Json_succeed(msg)$/;"	f
+_Json_toElmArray	versely.js	/^function _Json_toElmArray(array)$/;"	f
+_Json_unwrap	versely.js	/^function _Json_unwrap(value) { return value.a; }$/;"	f
+_Json_unwrap_UNUSED	versely.js	/^function _Json_unwrap_UNUSED(value) { return value; }$/;"	f
+_Json_wrap	versely.js	/^function _Json_wrap(value) { return { $: 0, a: value }; }$/;"	f
+_Json_wrap_UNUSED	versely.js	/^function _Json_wrap_UNUSED(value) { return value; }$/;"	f
+_List_Cons	versely.js	/^function _List_Cons(hd, tl) { return { $: '::', a: hd, b: tl }; }$/;"	f
+_List_Cons_UNUSED	versely.js	/^function _List_Cons_UNUSED(hd, tl) { return { $: 1, a: hd, b: tl }; }$/;"	f
+_List_Nil.$	versely.js	/^var _List_Nil = { $: '[]' };$/;"	p
+_List_Nil_UNUSED.$	versely.js	/^var _List_Nil_UNUSED = { $: 0 };$/;"	p
+_List_fromArray	versely.js	/^function _List_fromArray(arr)$/;"	f
+_List_toArray	versely.js	/^function _List_toArray(xs)$/;"	f
+_Platform_batch	versely.js	/^function _Platform_batch(list)$/;"	f
+_Platform_checkPortName	versely.js	/^function _Platform_checkPortName(name)$/;"	f
+_Platform_createManager	versely.js	/^function _Platform_createManager(init, onEffects, onSelfMsg, cmdMap, subMap)$/;"	f
+_Platform_dispatchEffects	versely.js	/^function _Platform_dispatchEffects(managers, cmdBag, subBag)$/;"	f
+_Platform_effectManagers.a	versely.js	/^		a: _Platform_setupIncomingPort$/;"	p
+_Platform_effectManagers.a	versely.js	/^		a: _Platform_setupOutgoingPort$/;"	p
+_Platform_effectManagers.e	versely.js	/^		e: _Platform_outgoingPortMap,$/;"	p
+_Platform_effectManagers.f	versely.js	/^		f: _Platform_incomingPortMap,$/;"	p
+_Platform_effectManagers.u	versely.js	/^		u: converter,$/;"	p
+_Platform_effectsActive	versely.js	/^var _Platform_effectsActive = false;$/;"	v
+_Platform_effectsQueue	versely.js	/^var _Platform_effectsQueue = [];$/;"	v
+_Platform_enqueueEffects	versely.js	/^function _Platform_enqueueEffects(managers, cmdBag, subBag)$/;"	f
+_Platform_export	versely.js	/^function _Platform_export(exports)$/;"	f
+_Platform_export_UNUSED	versely.js	/^function _Platform_export_UNUSED(exports)$/;"	f
+_Platform_gatherEffects	versely.js	/^function _Platform_gatherEffects(isCmd, bag, effectsDict, taggers)$/;"	f
+_Platform_incomingPort	versely.js	/^function _Platform_incomingPort(name, converter)$/;"	f
+_Platform_initialize	versely.js	/^function _Platform_initialize(flagDecoder, args, init, update, subscriptions, stepperBuilder)$/;"	f
+_Platform_initialize.sendToApp	versely.js	/^	function sendToApp(msg, viewMetadata)$/;"	f
+_Platform_insert	versely.js	/^function _Platform_insert(isCmd, newEffect, effects)$/;"	f
+_Platform_instantiateManager	versely.js	/^function _Platform_instantiateManager(info, sendToApp)$/;"	f
+_Platform_instantiateManager.loop	versely.js	/^	function loop(state)$/;"	f
+_Platform_instantiateManager.router.g	versely.js	/^		g: sendToApp,$/;"	p
+_Platform_instantiateManager.router.h	versely.js	/^		h: undefined$/;"	p
+_Platform_leaf	versely.js	/^function _Platform_leaf(home)$/;"	f
+_Platform_mergeExportsDebug	versely.js	/^function _Platform_mergeExportsDebug(moduleName, obj, exports)$/;"	f
+_Platform_mergeExportsProd	versely.js	/^function _Platform_mergeExportsProd(obj, exports)$/;"	f
+_Platform_outgoingPort	versely.js	/^function _Platform_outgoingPort(name, converter)$/;"	f
+_Platform_preload	versely.js	/^var _Platform_preload;$/;"	v
+_Platform_registerPreload	versely.js	/^function _Platform_registerPreload(url)$/;"	f
+_Platform_setupEffects	versely.js	/^function _Platform_setupEffects(managers, sendToApp)$/;"	f
+_Platform_setupIncomingPort	versely.js	/^function _Platform_setupIncomingPort(name, sendToApp)$/;"	f
+_Platform_setupIncomingPort.send	versely.js	/^	function send(incomingValue)$/;"	f
+_Platform_setupOutgoingPort	versely.js	/^function _Platform_setupOutgoingPort(name)$/;"	f
+_Platform_setupOutgoingPort.subscribe	versely.js	/^	function subscribe(callback)$/;"	f
+_Platform_setupOutgoingPort.unsubscribe	versely.js	/^	function unsubscribe(callback)$/;"	f
+_Platform_toEffect	versely.js	/^function _Platform_toEffect(isCmd, home, taggers, value)$/;"	f
+_Platform_toEffect.applyTaggers	versely.js	/^	function applyTaggers(x)$/;"	f
+_Process_sleep	versely.js	/^function _Process_sleep(time)$/;"	f
+_Scheduler_binding	versely.js	/^function _Scheduler_binding(callback)$/;"	f
+_Scheduler_enqueue	versely.js	/^function _Scheduler_enqueue(proc)$/;"	f
+_Scheduler_fail	versely.js	/^function _Scheduler_fail(error)$/;"	f
+_Scheduler_guid	versely.js	/^var _Scheduler_guid = 0;$/;"	v
+_Scheduler_kill	versely.js	/^function _Scheduler_kill(proc)$/;"	f
+_Scheduler_queue	versely.js	/^var _Scheduler_queue = [];$/;"	v
+_Scheduler_rawSend	versely.js	/^function _Scheduler_rawSend(proc, msg)$/;"	f
+_Scheduler_rawSpawn	versely.js	/^function _Scheduler_rawSpawn(task)$/;"	f
+_Scheduler_rawSpawn.proc.$	versely.js	/^		$: 0,$/;"	p
+_Scheduler_rawSpawn.proc.e	versely.js	/^		e: _Scheduler_guid++,$/;"	p
+_Scheduler_receive	versely.js	/^function _Scheduler_receive(callback)$/;"	f
+_Scheduler_spawn	versely.js	/^function _Scheduler_spawn(task)$/;"	f
+_Scheduler_step	versely.js	/^function _Scheduler_step(proc)$/;"	f
+_Scheduler_succeed	versely.js	/^function _Scheduler_succeed(value)$/;"	f
+_Scheduler_working	versely.js	/^var _Scheduler_working = false;$/;"	v
+_String_fromList	versely.js	/^function _String_fromList(chars)$/;"	f
+_String_fromNumber	versely.js	/^function _String_fromNumber(number)$/;"	f
+_String_length	versely.js	/^function _String_length(str)$/;"	f
+_String_lines	versely.js	/^function _String_lines(str)$/;"	f
+_String_reverse	versely.js	/^function _String_reverse(str)$/;"	f
+_String_toFloat	versely.js	/^function _String_toFloat(s)$/;"	f
+_String_toInt	versely.js	/^function _String_toInt(str)$/;"	f
+_String_toLower	versely.js	/^function _String_toLower(str)$/;"	f
+_String_toUpper	versely.js	/^function _String_toUpper(str)$/;"	f
+_String_trim	versely.js	/^function _String_trim(str)$/;"	f
+_String_trimLeft	versely.js	/^function _String_trimLeft(str)$/;"	f
+_String_trimRight	versely.js	/^function _String_trimRight(str)$/;"	f
+_String_uncons	versely.js	/^function _String_uncons(string)$/;"	f
+_String_words	versely.js	/^function _String_words(str)$/;"	f
+_Utils_Tuple0.$	versely.js	/^var _Utils_Tuple0 = { $: '#0' };$/;"	p
+_Utils_Tuple0_UNUSED	versely.js	/^var _Utils_Tuple0_UNUSED = 0;$/;"	v
+_Utils_Tuple2	versely.js	/^function _Utils_Tuple2(a, b) { return { $: '#2', a: a, b: b }; }$/;"	f
+_Utils_Tuple2_UNUSED	versely.js	/^function _Utils_Tuple2_UNUSED(a, b) { return { a: a, b: b }; }$/;"	f
+_Utils_Tuple3	versely.js	/^function _Utils_Tuple3(a, b, c) { return { $: '#3', a: a, b: b, c: c }; }$/;"	f
+_Utils_Tuple3_UNUSED	versely.js	/^function _Utils_Tuple3_UNUSED(a, b, c) { return { a: a, b: b, c: c }; }$/;"	f
+_Utils_ap	versely.js	/^function _Utils_ap(xs, ys)$/;"	f
+_Utils_chr	versely.js	/^function _Utils_chr(c) { return new String(c); }$/;"	f
+_Utils_chr_UNUSED	versely.js	/^function _Utils_chr_UNUSED(c) { return c; }$/;"	f
+_Utils_cmp	versely.js	/^function _Utils_cmp(x, y, ord)$/;"	f
+_Utils_eq	versely.js	/^function _Utils_eq(x, y)$/;"	f
+_Utils_eqHelp	versely.js	/^function _Utils_eqHelp(x, y, depth, stack)$/;"	f
+_Utils_update	versely.js	/^function _Utils_update(oldRecord, updatedFields)$/;"	f
+_VirtualDom_POSTFIX	versely.js	/^var _VirtualDom_POSTFIX = '_elmW6BL';$/;"	v
+_VirtualDom_addClass	versely.js	/^function _VirtualDom_addClass(object, key, newClass)$/;"	f
+_VirtualDom_addDomNodes	versely.js	/^function _VirtualDom_addDomNodes(domNode, vNode, patches, eventNode)$/;"	f
+_VirtualDom_addDomNodesHelp	versely.js	/^function _VirtualDom_addDomNodesHelp(domNode, vNode, patches, i, low, high, eventNode)$/;"	f
+_VirtualDom_appendChild	versely.js	/^function _VirtualDom_appendChild(parent, child)$/;"	f
+_VirtualDom_applyAttrs	versely.js	/^function _VirtualDom_applyAttrs(domNode, attrs)$/;"	f
+_VirtualDom_applyAttrsNS	versely.js	/^function _VirtualDom_applyAttrsNS(domNode, nsAttrs)$/;"	f
+_VirtualDom_applyEvents	versely.js	/^function _VirtualDom_applyEvents(domNode, eventNode, events)$/;"	f
+_VirtualDom_applyFacts	versely.js	/^function _VirtualDom_applyFacts(domNode, eventNode, facts)$/;"	f
+_VirtualDom_applyPatch	versely.js	/^function _VirtualDom_applyPatch(domNode, patch)$/;"	f
+_VirtualDom_applyPatchRedraw	versely.js	/^function _VirtualDom_applyPatchRedraw(domNode, vNode, eventNode)$/;"	f
+_VirtualDom_applyPatchReorder	versely.js	/^function _VirtualDom_applyPatchReorder(domNode, patch)$/;"	f
+_VirtualDom_applyPatchReorderEndInsertsHelp	versely.js	/^function _VirtualDom_applyPatchReorderEndInsertsHelp(endInserts, patch)$/;"	f
+_VirtualDom_applyPatches	versely.js	/^function _VirtualDom_applyPatches(rootDomNode, oldVirtualNode, patches, eventNode)$/;"	f
+_VirtualDom_applyPatchesHelp	versely.js	/^function _VirtualDom_applyPatchesHelp(rootDomNode, patches)$/;"	f
+_VirtualDom_applyStyles	versely.js	/^function _VirtualDom_applyStyles(domNode, styles)$/;"	f
+_VirtualDom_custom	versely.js	/^function _VirtualDom_custom(factList, model, render, diff)$/;"	f
+_VirtualDom_dekey	versely.js	/^function _VirtualDom_dekey(keyedNode)$/;"	f
+_VirtualDom_diff	versely.js	/^function _VirtualDom_diff(x, y)$/;"	f
+_VirtualDom_diffFacts	versely.js	/^function _VirtualDom_diffFacts(x, y, category)$/;"	f
+_VirtualDom_diffHelp	versely.js	/^function _VirtualDom_diffHelp(x, y, patches, index)$/;"	f
+_VirtualDom_diffKeyedKids	versely.js	/^function _VirtualDom_diffKeyedKids(xParent, yParent, patches, rootIndex)$/;"	f
+_VirtualDom_diffKids	versely.js	/^function _VirtualDom_diffKids(xParent, yParent, patches, index)$/;"	f
+_VirtualDom_diffNodes	versely.js	/^function _VirtualDom_diffNodes(x, y, patches, index, diffKids)$/;"	f
+_VirtualDom_divertHrefToApp	versely.js	/^var _VirtualDom_divertHrefToApp;$/;"	v
+_VirtualDom_equalEvents	versely.js	/^function _VirtualDom_equalEvents(x, y)$/;"	f
+_VirtualDom_insertNode	versely.js	/^function _VirtualDom_insertNode(changes, localPatches, key, vnode, yIndex, inserts)$/;"	f
+_VirtualDom_keyedNode	versely.js	/^var _VirtualDom_keyedNode = _VirtualDom_keyedNodeNS(undefined);$/;"	v
+_VirtualDom_makeCallback	versely.js	/^function _VirtualDom_makeCallback(eventNode, initialHandler)$/;"	f
+_VirtualDom_makeCallback.callback	versely.js	/^	function callback(event)$/;"	f
+_VirtualDom_mapHandler	versely.js	/^function _VirtualDom_mapHandler(func, handler)$/;"	f
+_VirtualDom_noInnerHtmlOrFormAction	versely.js	/^function _VirtualDom_noInnerHtmlOrFormAction(key)$/;"	f
+_VirtualDom_noJavaScriptOrHtmlUri	versely.js	/^function _VirtualDom_noJavaScriptOrHtmlUri(value)$/;"	f
+_VirtualDom_noJavaScriptOrHtmlUri_UNUSED	versely.js	/^function _VirtualDom_noJavaScriptOrHtmlUri_UNUSED(value)$/;"	f
+_VirtualDom_noJavaScriptUri	versely.js	/^function _VirtualDom_noJavaScriptUri(value)$/;"	f
+_VirtualDom_noJavaScriptUri_UNUSED	versely.js	/^function _VirtualDom_noJavaScriptUri_UNUSED(value)$/;"	f
+_VirtualDom_noOnOrFormAction	versely.js	/^function _VirtualDom_noOnOrFormAction(key)$/;"	f
+_VirtualDom_noScript	versely.js	/^function _VirtualDom_noScript(tag)$/;"	f
+_VirtualDom_node	versely.js	/^var _VirtualDom_node = _VirtualDom_nodeNS(undefined);$/;"	v
+_VirtualDom_organizeFacts	versely.js	/^function _VirtualDom_organizeFacts(factList)$/;"	f
+_VirtualDom_pairwiseRefEqual	versely.js	/^function _VirtualDom_pairwiseRefEqual(as, bs)$/;"	f
+_VirtualDom_passiveSupported	versely.js	/^var _VirtualDom_passiveSupported;$/;"	v
+_VirtualDom_pushPatch	versely.js	/^function _VirtualDom_pushPatch(patches, type, index, data)$/;"	f
+_VirtualDom_pushPatch.patch.$	versely.js	/^		$: type,$/;"	p
+_VirtualDom_pushPatch.patch.r	versely.js	/^		r: index,$/;"	p
+_VirtualDom_pushPatch.patch.s	versely.js	/^		s: data,$/;"	p
+_VirtualDom_pushPatch.patch.t	versely.js	/^		t: undefined,$/;"	p
+_VirtualDom_pushPatch.patch.u	versely.js	/^		u: undefined$/;"	p
+_VirtualDom_removeNode	versely.js	/^function _VirtualDom_removeNode(changes, localPatches, key, vnode, index)$/;"	f
+_VirtualDom_render	versely.js	/^function _VirtualDom_render(vNode, eventNode)$/;"	f
+_VirtualDom_text	versely.js	/^function _VirtualDom_text(string)$/;"	f
+_VirtualDom_thunk	versely.js	/^function _VirtualDom_thunk(refs, thunk)$/;"	f
+_VirtualDom_virtualize	versely.js	/^function _VirtualDom_virtualize(node)$/;"	f
+changes.c	versely.js	/^			c: 1,$/;"	p
+changes.r	versely.js	/^			r: index,$/;"	p
+changes.s	versely.js	/^			s: patch$/;"	p
+changes.z	versely.js	/^			z: vnode,$/;"	p
+decoders	versely.js	/^			var decoders = decoder.g;$/;"	v
+domNode.elm_event_node_ref.j	versely.js	/^				domNode.elm_event_node_ref = { j: patch.s, p: patch.u };$/;"	p
+entry.c	versely.js	/^			c: 0,$/;"	p
+entry.r	versely.js	/^			r: yIndex,$/;"	p
+entry.s	versely.js	/^			s: undefined$/;"	p
+entry.s.s.A	versely.js	/^			A: entry$/;"	p
+entry.s.s.w	versely.js	/^			w: subPatches,$/;"	p
+entry.z	versely.js	/^			z: vnode,$/;"	p
+factsDiff	versely.js	/^			var factsDiff = _VirtualDom_diffFacts(x.d, y.d);$/;"	v
+keyValuePairs	versely.js	/^			var keyValuePairs = _List_Nil;$/;"	v
+patch	versely.js	/^			var patch = y.i(x.g, y.g);$/;"	v
+proc.g.$	versely.js	/^				$: rootTag === 3 ? 0 : 1,$/;"	p
+var.subEventRoot.j	versely.js	/^		var subEventRoot = { j: tagger, p: eventNode };$/;"	p
+var.subEventRoot.p	versely.js	/^		var subEventRoot = { j: tagger, p: eventNode };$/;"	p

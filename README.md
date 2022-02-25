@@ -1,5 +1,5 @@
 ### Building
 ```bash
-elm make src/Versley.elm --output versely.js
+elm make src/Versely.elm --output versely.js
 open index.html
 ```
